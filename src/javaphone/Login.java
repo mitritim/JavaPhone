@@ -10,13 +10,12 @@ package javaphone;
  *
  * @author iGroup
  */
-public class JavaPhone {
+public class Login {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        new LpPhoneMain();
+    public Login() {
     }
     
+    public boolean checkLogin() {
+        return false;
+    }
 }
