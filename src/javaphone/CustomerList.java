@@ -24,8 +24,14 @@ public class CustomerList {
         return filteredCustomerList;
     }
 
-    public boolean addCustomer(Customer customer) {
-        customerList.add(customer);
+    public boolean addCustomer(ArrayList customerData) {
+        return true;
+    }
+
+    public ArrayList getCustomerData(Customer customer) {
+        return null;
+    }
+    public boolean changeCustomerData(Customer customer, ArrayList customerData) {
         return true;
     }
 

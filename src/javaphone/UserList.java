@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package javaphone;
 
 import java.util.ArrayList;
@@ -13,17 +12,26 @@ import java.util.ArrayList;
  * @author iGroup
  */
 public class UserList {
+
     private ArrayList<User> userList;
 
     public ArrayList<User> getUserList() {
         return userList;
     }
 
-    public void addUser(User user) {
-        
+    public ArrayList getUserData(User user) {
+        return null;
     }
 
-    public String sendUserPassword(int userId){
+    public boolean changeUserData(User user, ArrayList userData) {
+        return true;
+    }
+
+    public void addUser(User user) {
+
+    }
+
+    public String sendUserPassword(int userId) {
         return null;
     }
 }

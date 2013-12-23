@@ -27,7 +27,7 @@ public class ServiceList {
         return 0;
     }
 
-    public boolean changeService(Service service, double price) {
+    public boolean setServicePrice(Service service, double price) {
         return false;
     }
 
