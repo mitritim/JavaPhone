@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaphone;
 
 import java.util.ArrayList;
@@ -11,17 +6,19 @@ import java.util.ArrayList;
  *
  * @author iGroup
  */
-public class ServiceDatabase {
-
+public class ServiceDatabase extends FileIO {
+    private final String fileName = "services.xml";
+    private final String rootElementName = "services";
+    private final String objectElementName = "service";
+    
     public ServiceDatabase() {
     }
 
-    public ArrayList<ArrayList<Object>> getFileContents() {
-        return null;
+    public ArrayList getFileContents() {
+        return readFile(fileName, objectElementName);
     }
 
-    public boolean updateFile(ArrayList<ArrayList<Object>> fileData) {
-        return false;
+    public boolean updateFile(ArrayList fileData) {
+        return writeFile(fileName, rootElementName, objectElementName, fileData);
     }
-
 }

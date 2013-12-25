@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaphone;
 
 import java.util.ArrayList;
@@ -19,11 +14,14 @@ public class LpPhoneMain {
     private CustomerList customerList;
 
     public LpPhoneMain() {
+        createServiceList();
+        createUserList();
+        createCustomerList();
     }
 
     public void runProgram() {
-        createServiceList();
-        createUserList();
+        PhoneMenu.printLogin(); //hur får jag tillbaka inloggningsuppgifter?
+        //login();
     }
 
     private boolean setActiveUser(int userId) {
@@ -35,8 +33,13 @@ public class LpPhoneMain {
         return activeUser;
     }
 
-    private int login() {
-        return 0;
+    private boolean login(int userId, String password) {
+        if (sendUserPassword(userId).equals(password)) {
+            setActiveUser(userId);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private boolean createServiceList() {

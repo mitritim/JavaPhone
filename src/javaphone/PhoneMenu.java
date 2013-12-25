@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaphone;
 
 /**
@@ -14,33 +9,36 @@ public class PhoneMenu {
     public PhoneMenu() {
     }
 
-    public void printMainWindow() {
+    public static void printLogin() {
     }
 
-    public void printMainMenu() {
+    public static void printMainWindow() {
     }
 
-    public void printStartPage() {
+    public static void printMainMenu() {
     }
 
-    public void printAddCustomer() {
+    public static void printStartPage() {
     }
 
-    public void printCustomerList() {
+    public static void printAddCustomer() {
     }
 
-    public void printUser() {
+    public static void printCustomerList() {
     }
 
-    public void printAddUser() {
+    public static void printUser() {
     }
 
-    public void printService() {
+    public static void printAddUser() {
     }
 
-    public void printPriceC() {
+    public static void printService() {
     }
 
-    public void shutDown() {
+    public static void printPriceC() {
+    }
+
+    public static void shutDown() {
     }
 }
