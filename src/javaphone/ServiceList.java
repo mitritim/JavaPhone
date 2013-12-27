@@ -6,16 +6,12 @@ import java.util.ArrayList;
  *
  * @author iGroup
  */
-public class ServiceList {
-
-    private ArrayList<Service> serviceList;
-
-    public ServiceList() {
-        //get serviceList from file;
-    }
+public class ServiceList extends ArrayList {
+    private DataFileIO serviceDataFile;
     
-    public ArrayList getServiceList() {
-        return null;
+    public ServiceList() {
+        serviceDataFile = new DataFileIO("services.xml", "services", "service");
+        this.addAll(serviceDataFile.read());
     }
 
     public double getServicePrice(Service service) {

@@ -1,32 +1,30 @@
 package javaphone;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
- * @author Mitja
+ * @author iGroup
  */
-public class CustomerList {
+public class CustomerList extends ArrayList {
 
-    private ArrayList<Customer> customerList;
-    private ArrayList<Customer> filteredCustomerList;
+    private DataFileIO customerDataFile;
 
     public CustomerList() {
-        //get customerList from file
+        customerDataFile = new DataFileIO("customers.xml", "customers", "customer");
+        this.addAll(customerDataFile.read());
     }
 
-    public ArrayList<Customer> getCustomerList(User user, Service service) {
-        return filteredCustomerList;
-    }
-
-    public boolean addCustomer(ArrayList customerData) {
-        return true;
+    public ArrayList filter(User user, Service service) {
+        return null;
     }
 
     public ArrayList getCustomerData(Customer customer) {
         return null;
     }
-    public boolean changeCustomerData(Customer customer, ArrayList customerData) {
+
+    public boolean changeCustomerData(Customer customer, HashMap customerData) {
         return true;
     }
 
@@ -34,10 +32,7 @@ public class CustomerList {
         return 0;
     }
 
-    public boolean prepareReport() {
-        ArrayList reportData = new ArrayList();
-        new StatisticsReport(reportData);
-        return true;
+    public void prepareReport() {
     }
 
     public String getNextContract() {

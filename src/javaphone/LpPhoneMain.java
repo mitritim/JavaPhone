@@ -1,6 +1,7 @@
 package javaphone;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -61,19 +62,19 @@ public class LpPhoneMain {
         return customerList.getNextContract();
     }
 
-    public boolean addCustomer(ArrayList customerData) {
-        return customerList.addCustomer(customerData);
+    public boolean addCustomer(HashMap customerData) {
+        return customerList.add(customerData);
     }
 
     public ArrayList getCustomerList(User user, Service service) {
-        return customerList.getCustomerList(user, service);
+        return customerList.filter(user, service);
     }
 
     public ArrayList getCustomerData(Customer customer) {
         return customerList.getCustomerData(customer);
     }
 
-    public boolean changeCustomerData(Customer customer, ArrayList customerData) {
+    public boolean changeCustomerData(Customer customer, HashMap customerData) {
         return customerList.changeCustomerData(customer, customerData);
     }
 
@@ -82,14 +83,14 @@ public class LpPhoneMain {
     }
 
     public ArrayList getUserList() {
-        return userList.getUserList();
+        return userList;
     }
 
     public ArrayList getUserData(User user) {
         return userList.getUserData(user);
     }
 
-    public boolean changeUserData(User user, ArrayList userData) {
+    public boolean changeUserData(User user, HashMap userData) {
         return userList.changeUserData(user, userData);
     }
 
@@ -98,7 +99,7 @@ public class LpPhoneMain {
     }
 
     public ArrayList getServiceList() {
-        return serviceList.getServiceList();
+        return serviceList;
     }
 
     public double getServicePrice(Service service) {

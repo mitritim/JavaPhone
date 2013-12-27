@@ -14,12 +14,19 @@ import org.xml.sax.SAXException;
  *
  * @author iGroup
  */
-public abstract class FileIO {
+public class DataFileIO {
 
-    public boolean writeFile(String fileName,
-            String rootElementName,
-            String objectElementName,
-            ArrayList<HashMap> fileData) {
+    private final String fileName;
+    private final String rootElementName;
+    private final String objectElementName;
+
+    public DataFileIO(String fileName, String rootElementName, String objectElementName) {
+        this.fileName = fileName;
+        this.rootElementName = rootElementName;
+        this.objectElementName = objectElementName;
+    }
+
+    public boolean write(ArrayList<HashMap> fileData) {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -68,7 +75,7 @@ public abstract class FileIO {
         }
     }
 
-    public ArrayList readFile(String fileName, String objectElementName) {
+    public ArrayList read() {
 
         try {
             File file = new File(fileName);
@@ -103,7 +110,7 @@ public abstract class FileIO {
                 }
             }
             return objects;
-            
+
         } catch (ParserConfigurationException |
                 SAXException |
                 IOException |

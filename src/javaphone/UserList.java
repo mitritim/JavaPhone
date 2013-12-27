@@ -1,29 +1,26 @@
 package javaphone;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author iGroup
  */
-public class UserList {
-
-    private ArrayList<User> userList;
-
-    public ArrayList<User> getUserList() {
-        return userList;
+public class UserList extends ArrayList {
+    private DataFileIO userDataFile;
+    
+    public UserList() {
+        userDataFile = new DataFileIO("users.xml", "users", "user");
+        this.addAll(userDataFile.read());
     }
 
     public ArrayList getUserData(User user) {
         return null;
     }
 
-    public boolean changeUserData(User user, ArrayList userData) {
+    public boolean changeUserData(User user, HashMap userData) {
         return true;
-    }
-
-    public void addUser(User user) {
-
     }
 
     public String sendUserPassword(int userId) {
