@@ -4,20 +4,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
+ * This controller class is responsible for communication between
+ * the GUI and the model classes.
+ * 
  * @author iGroup
  */
 public class LpPhoneMain {
 
     private int activeUser;
-    private ServiceList serviceList;
-    private UserList userList;
-    private CustomerList customerList;
+    private final ServiceList serviceList;
+    private final UserList userList;
+    private final CustomerList customerList;
 
+    /**
+     * Constructor for class LpPhoneMain.
+     */
     public LpPhoneMain() {
-        createServiceList();
-        createUserList();
-        createCustomerList();
+        serviceList = new ServiceList();
+        userList = new UserList();
+        customerList = new CustomerList();
     }
 
     public void runProgram() {
@@ -41,21 +46,6 @@ public class LpPhoneMain {
         } else {
             return false;
         }
-    }
-
-    private boolean createServiceList() {
-        serviceList = new ServiceList();
-        return true;
-    }
-
-    private boolean createUserList() {
-        userList = new UserList();
-        return true;
-    }
-
-    private boolean createCustomerList() {
-        customerList = new CustomerList();
-        return true;
     }
 
     public String getNextContract() {
