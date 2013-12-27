@@ -1,5 +1,6 @@
 package javaphone;
 
+// <editor-fold defaultstate="collapsed" desc=" Imports ">
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -9,9 +10,11 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
+//</editor-fold>
 
 /**
- *
+ * The class is responsible for reading data from and writing data to xml-files.
+ * 
  * @author iGroup
  */
 public class DataFileIO {
@@ -20,12 +23,28 @@ public class DataFileIO {
     private final String rootElementName;
     private final String objectElementName;
 
+    /**
+     * Constructor for DataFileIO objects.
+     * 
+     * @param fileName          The name of the xml-file.
+     * @param rootElementName   The name of the root xml-element.
+     * @param objectElementName The name of the 2nd-level xml-element.
+     */
     public DataFileIO(String fileName, String rootElementName, String objectElementName) {
         this.fileName = fileName;
         this.rootElementName = rootElementName;
         this.objectElementName = objectElementName;
     }
 
+    /**
+     * Writes data to an xml-file.<br />
+     * The file is created if it does not exist,
+     * otherwise the file is overwritten.
+     *
+     * @param fileData  source data to be written
+     * @return  true if write was successful<br />
+     *          false if write failed
+     */
     public boolean write(ArrayList<HashMap> fileData) {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -75,6 +94,14 @@ public class DataFileIO {
         }
     }
 
+    /**
+     * Reads data from an xml-file.
+     * A HashMap is created for every 2nd-level xml element,
+     * all elements are put into an ArrayList.
+     *
+     * @return an ArrayList of HashMaps<br />
+     *         (HashMap key = variable name, value = value)
+     */
     public ArrayList read() {
 
         try {
