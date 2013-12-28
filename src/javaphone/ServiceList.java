@@ -1,6 +1,7 @@
 package javaphone;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -11,7 +12,7 @@ public class ServiceList extends ArrayList {
     
     public ServiceList() {
         serviceDataFile = new DataFileIO("services.xml", "services", "service");
-        this.addAll(serviceDataFile.read());
+        Collections.addAll(this, serviceDataFile.read());
     }
 
     public double getServicePrice(Service service) {

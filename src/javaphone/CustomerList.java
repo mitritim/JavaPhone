@@ -1,6 +1,7 @@
 package javaphone;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -13,7 +14,7 @@ public class CustomerList extends ArrayList {
 
     public CustomerList() {
         customerDataFile = new DataFileIO("customers.xml", "customers", "customer");
-        this.addAll(customerDataFile.read());
+        Collections.addAll(this, customerDataFile.read());
     }
 
     public ArrayList filter(User user, Service service) {
