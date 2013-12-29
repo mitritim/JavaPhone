@@ -3,10 +3,7 @@ package javaphone;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,10 +12,7 @@ import static org.junit.Assert.*;
  * 
  * @author iGroup
  */
-public class DataFileIOTest {
-
-    public DataFileIOTest() {
-    }
+public abstract class DataFileIOTest {
 
     /**
      * Test for methods write and read of class DataFileIO. A file test.xml is
@@ -45,7 +39,6 @@ public class DataFileIOTest {
         
         assertEquals(testFile.read().get(0).get("Price"), object1.get("Price").toString());
         assertEquals(testFile.read().get(1).get("customerName"), object2.get("customerName"));
-
     }
 
     @AfterClass
