@@ -20,11 +20,12 @@ import org.xml.sax.SAXException;
 public class DataFileIO {
 
     private final String fileName;
+    private final String filePath = "data/";
     private final String rootElementName;
     private final String objectElementName;
 
     /**
-     * Constructor for DataFileIO objects.
+     * Constructor for DataFileIO entries.
      * 
      * @param fileName          The name of the xml-file.
      * @param rootElementName   The name of the root xml-element.
@@ -56,11 +57,11 @@ public class DataFileIO {
             Element rootElement = doc.createElement(rootElementName);
             doc.appendChild(rootElement);
 
-            //customer.setAttribute("id", "1");
             for (HashMap objectFields : fileData) {
                 //main object element
                 Element objectElement = doc.createElement(objectElementName);
                 rootElement.appendChild(objectElement);
+                //objectElement.setAttribute("id", "1");
                 Set set = objectFields.entrySet();
                 Iterator i = set.iterator();
 
@@ -84,7 +85,7 @@ public class DataFileIO {
 
             DOMSource source = new DOMSource(doc);
 
-            StreamResult result = new StreamResult(new File(fileName));
+            StreamResult result = new StreamResult(new File(filePath+fileName));
             transformer.transform(source, result);
 
             return true;
@@ -102,10 +103,10 @@ public class DataFileIO {
      * @return an ArrayList of HashMaps<br />
      *         (HashMap key = variable name, value = value)
      */
-    public ArrayList read() {
+    public ArrayList<HashMap> read() {
 
         try {
-            File file = new File(fileName);
+            File file = new File(filePath+fileName);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document document = dBuilder.parse(file);
@@ -114,7 +115,7 @@ public class DataFileIO {
 
             NodeList nList = document.getElementsByTagName(objectElementName);
 
-            ArrayList objects = new ArrayList();
+            ArrayList<HashMap> entries = new ArrayList<HashMap>();
 
             for (int i = 0; i < nList.getLength(); i++) {
 
@@ -132,11 +133,11 @@ public class DataFileIO {
                             fieldValues.put(children.item(j).getNodeName(),
                                     children.item(j).getTextContent());
                         }
-                        objects.add(fieldValues);
                     }
+                    entries.add(fieldValues);
                 }
             }
-            return objects;
+            return entries;
 
         } catch (ParserConfigurationException |
                 SAXException |

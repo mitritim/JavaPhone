@@ -1,18 +1,18 @@
 package javaphone;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
 
 /**
  *
  * @author iGroup
  */
-public class ServiceList extends ArrayList {
-    private DataFileIO serviceDataFile;
+public class ServiceList extends ArrayList<HashMap> {
+    private final DataFileIO serviceDataFile;
     
     public ServiceList() {
         serviceDataFile = new DataFileIO("services.xml", "services", "service");
-        Collections.addAll(this, serviceDataFile.read());
+        this.addAll(serviceDataFile.read());
     }
 
     public double getServicePrice(Service service) {

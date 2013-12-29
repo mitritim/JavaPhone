@@ -1,19 +1,18 @@
 package javaphone;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 /**
  *
  * @author iGroup
  */
-public class UserList extends ArrayList {
-    private DataFileIO userDataFile;
+public class UserList extends ArrayList<HashMap> {
+    private final DataFileIO userDataFile;
     
     public UserList() {
         userDataFile = new DataFileIO("users.xml", "users", "user");
-        Collections.addAll(this, userDataFile.read());
+        this.addAll(userDataFile.read());
     }
 
     public ArrayList getUserData(User user) {

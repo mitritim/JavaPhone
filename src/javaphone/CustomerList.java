@@ -1,20 +1,19 @@
 package javaphone;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 /**
  *
  * @author iGroup
  */
-public class CustomerList extends ArrayList {
+public class CustomerList extends ArrayList<HashMap> {
 
-    private DataFileIO customerDataFile;
+    private final DataFileIO customerDataFile;
 
     public CustomerList() {
         customerDataFile = new DataFileIO("customers.xml", "customers", "customer");
-        Collections.addAll(this, customerDataFile.read());
+        this.addAll(customerDataFile.read());
     }
 
     public ArrayList filter(User user, Service service) {
