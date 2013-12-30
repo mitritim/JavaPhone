@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  * 
  * @author iGroup
  */
-public abstract class DataFileIOTest {
+public class DataFileIOTest {
 
     /**
      * Test for methods write and read of class DataFileIO. A file test.xml is
