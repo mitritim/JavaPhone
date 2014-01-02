@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package JavaPhone;
+package javaphone;
 
 /**
  *
  * @author LimeDV
  */
-public class CustomerListGUI extends javax.swing.JFrame {
+public class WorkerListGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form StartPageGUI
      */
-    public CustomerListGUI() {
+    public WorkerListGUI() {
         initComponents();
     }
 
@@ -28,112 +28,171 @@ public class CustomerListGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        addWorker = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        inputWorkerName = new javax.swing.JTextField();
+        inputWorkerPassword = new javax.swing.JTextField();
+        newnamn = new javax.swing.JLabel();
+        newlösenord = new javax.swing.JLabel();
+        submitAcceptNewWorker = new javax.swing.JButton();
+        submitCancelNewWorker = new javax.swing.JButton();
         menu = new javax.swing.JPanel();
         main = new javax.swing.JPanel();
-        customerList = new javax.swing.JLabel();
+        handlaggare = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
+        namn = new javax.swing.JLabel();
+        antal = new javax.swing.JLabel();
+        reg_kunder = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        viewPhone = new javax.swing.JCheckBox();
-        viewBradband = new javax.swing.JCheckBox();
-        filterWorker = new javax.swing.JLabel();
-        workerDropdown = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        submitNewWorker = new javax.swing.JButton();
         buttonStartpage = new javax.swing.JButton();
         buttonAddNewCustomer = new javax.swing.JButton();
         buttonCustomer = new javax.swing.JButton();
         buttonWorker = new javax.swing.JButton();
         buttonServices = new javax.swing.JButton();
         buttonLoggOut = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+
+        addWorker.setTitle("Ny handläggare");
+        addWorker.setAlwaysOnTop(true);
+        addWorker.setMinimumSize(new java.awt.Dimension(750, 450));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Lägg till ny handläggare");
+
+        inputWorkerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputWorkerNameActionPerformed(evt);
+            }
+        });
+
+        newnamn.setText("Namn:");
+
+        newlösenord.setText("Lösenord:");
+
+        submitAcceptNewWorker.setText("Registrera");
+        submitAcceptNewWorker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitAcceptNewWorkerActionPerformed(evt);
+            }
+        });
+
+        submitCancelNewWorker.setText("Avbryt");
+        submitCancelNewWorker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitCancelNewWorkerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addWorkerLayout = new javax.swing.GroupLayout(addWorker.getContentPane());
+        addWorker.getContentPane().setLayout(addWorkerLayout);
+        addWorkerLayout.setHorizontalGroup(
+            addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addWorkerLayout.createSequentialGroup()
+                .addGroup(addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(submitCancelNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(addWorkerLayout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(jLabel2))
+                        .addGroup(addWorkerLayout.createSequentialGroup()
+                            .addGap(81, 81, 81)
+                            .addGroup(addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(newnamn)
+                                .addComponent(newlösenord))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(inputWorkerName, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                                .addComponent(inputWorkerPassword)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(submitAcceptNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
+        );
+        addWorkerLayout.setVerticalGroup(
+            addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addWorkerLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel2)
+                .addGap(86, 86, 86)
+                .addGroup(addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputWorkerName, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newnamn))
+                .addGap(43, 43, 43)
+                .addGroup(addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputWorkerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newlösenord))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addGroup(addWorkerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitAcceptNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitCancelNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Kunder | lpPhone");
-        setPreferredSize(new java.awt.Dimension(1080, 720));
+        setTitle("Handläggare | lpPhone");
 
         menu.setAlignmentX(0.0F);
         menu.setAlignmentY(0.0F);
 
         main.setAlignmentY(0.0F);
 
-        customerList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        customerList.setText("Kundlista");
+        handlaggare.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        handlaggare.setText("Handläggarlista");
 
-        viewPhone.setText("Telefoni");
+        id.setText("ID");
 
-        viewBradband.setText("Bredband");
+        namn.setText("Namn");
 
-        filterWorker.setText("Filtrera för handläggare:");
+        antal.setText("Antal");
 
-        workerDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        workerDropdown.addActionListener(new java.awt.event.ActionListener() {
+        reg_kunder.setText("reg. kunder");
+
+        submitNewWorker.setText("Ny Handläggare");
+        submitNewWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                workerDropdownActionPerformed(evt);
+                submitNewWorkerActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("Kund ID");
-
-        jLabel2.setText("Namn");
-
-        jLabel3.setText("Telefoni");
-
-        jLabel4.setText("Bredband");
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
         main.setLayout(mainLayout);
         mainLayout.setHorizontalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainLayout.createSequentialGroup()
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerList)
-                            .addComponent(jLabel1))
+                        .addGap(40, 40, 40)
                         .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mainLayout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(viewPhone)
-                                .addGap(61, 61, 61)
-                                .addComponent(viewBradband)
-                                .addGap(65, 65, 65)
-                                .addComponent(filterWorker)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(workerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainLayout.createSequentialGroup()
+                                .addComponent(id)
                                 .addGap(50, 50, 50)
-                                .addComponent(jLabel2)
+                                .addComponent(namn)
                                 .addGap(80, 80, 80)
-                                .addComponent(jLabel3)
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel4)))))
+                                .addComponent(reg_kunder))
+                            .addComponent(handlaggare)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(submitNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(mainLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(antal)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainLayout.setVerticalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
+                .addComponent(handlaggare)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(antal)
+                .addGap(4, 4, 4)
                 .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewPhone)
-                    .addComponent(viewBradband)
-                    .addComponent(filterWorker)
-                    .addComponent(workerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(customerList))
-                .addGap(30, 30, 30)
-                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(id)
+                    .addComponent(namn)
+                    .addComponent(reg_kunder))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 520, Short.MAX_VALUE)
+                .addComponent(submitNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
 
         buttonStartpage.setText("Startsida");
@@ -157,6 +216,11 @@ public class CustomerListGUI extends javax.swing.JFrame {
         buttonCustomer.setMaximumSize(new java.awt.Dimension(83, 25));
         buttonCustomer.setMinimumSize(new java.awt.Dimension(83, 25));
         buttonCustomer.setPreferredSize(new java.awt.Dimension(83, 25));
+        buttonCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCustomerActionPerformed(evt);
+            }
+        });
 
         buttonWorker.setText("Handläggare");
         buttonWorker.setMaximumSize(new java.awt.Dimension(83, 25));
@@ -203,7 +267,7 @@ public class CustomerListGUI extends javax.swing.JFrame {
                     .addComponent(buttonServices, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonLoggOut, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddNewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(892, 899, Short.MAX_VALUE))
+                .addGap(892, 895, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,18 +289,6 @@ public class CustomerListGUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jMenu1.setText("Edit");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Hjälp");
-
-        jMenuItem1.setText("jMenuItem1");
-        jMenu2.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -254,7 +306,7 @@ public class CustomerListGUI extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void buttonLoggOutActionPerformed(java.awt.event.ActionEvent evt) {                                              
-    System.exit(0);  
+       System.exit(0);  
     }                                             
 
     private void buttonAddNewCustomerActionPerformed(java.awt.event.ActionEvent evt) {                                                     
@@ -263,24 +315,40 @@ public class CustomerListGUI extends javax.swing.JFrame {
        a.setVisible(true);
     }                                                    
 
-    private void workerDropdownActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
-    }                                              
-
     private void buttonStartpageActionPerformed(java.awt.event.ActionEvent evt) {                                                
-             dispose();
+        dispose();
         StartPageGUI s = new StartPageGUI();
        s.setVisible(true);
     }                                               
 
-    private void buttonWorkerActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void buttonCustomerActionPerformed(java.awt.event.ActionEvent evt) {                                               
         dispose();
-        WorkerListGUI wl = new WorkerListGUI();
-       wl.setVisible(true);
+        CustomerListGUI cl = new CustomerListGUI();
+       cl.setVisible(true);
+    }                                              
+
+    private void buttonWorkerActionPerformed(java.awt.event.ActionEvent evt) {                                             
+       
     }                                            
 
+    private void submitNewWorkerActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        addWorker.setVisible(true);
+    }                                               
+
+    private void inputWorkerNameActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }                                               
+
+    private void submitAcceptNewWorkerActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        // TODO add your handling code here:
+    }                                                     
+
+    private void submitCancelNewWorkerActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        addWorker.setVisible(false);
+    }                                                     
+
     private void buttonServicesActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        dispose();
+          dispose();
         ServicesGUI se = new ServicesGUI();
        se.setVisible(true);
     }                                              
@@ -321,27 +389,28 @@ public class CustomerListGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JDialog addWorker;
+    private javax.swing.JLabel antal;
     private javax.swing.JButton buttonAddNewCustomer;
     private javax.swing.JButton buttonCustomer;
     private javax.swing.JButton buttonLoggOut;
     private javax.swing.JButton buttonServices;
     private javax.swing.JButton buttonStartpage;
     private javax.swing.JButton buttonWorker;
-    private javax.swing.JLabel customerList;
-    private javax.swing.JLabel filterWorker;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel handlaggare;
+    private javax.swing.JLabel id;
+    private javax.swing.JTextField inputWorkerName;
+    private javax.swing.JTextField inputWorkerPassword;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel main;
     private javax.swing.JPanel menu;
-    private javax.swing.JCheckBox viewBradband;
-    private javax.swing.JCheckBox viewPhone;
-    private javax.swing.JComboBox workerDropdown;
+    private javax.swing.JLabel namn;
+    private javax.swing.JLabel newlösenord;
+    private javax.swing.JLabel newnamn;
+    private javax.swing.JLabel reg_kunder;
+    private javax.swing.JButton submitAcceptNewWorker;
+    private javax.swing.JButton submitCancelNewWorker;
+    private javax.swing.JButton submitNewWorker;
     // End of variables declaration                   
 }

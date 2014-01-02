@@ -1,4 +1,4 @@
-package javaPhone;
+package javaphone;
 
 /**
  *
