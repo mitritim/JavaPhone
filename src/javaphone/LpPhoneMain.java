@@ -27,7 +27,6 @@ public class LpPhoneMain {
     }
 
     public void runProgram() {
-        PhoneMenu.printLogin(); //hur får jag tillbaka inloggningsuppgifter?
         //login();
     }
 
