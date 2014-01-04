@@ -39,6 +39,10 @@ public class DataFileIOTest {
         
         assertEquals(testFile.read().get(0).get("Price"), object1.get("Price").toString());
         assertEquals(testFile.read().get(1).get("customerName"), object2.get("customerName"));
+        
+        assert(testFile.read().get(1).get("customerAge") instanceof Integer);
+        assert(testFile.read().get(0).get("ProductName") instanceof String);
+        //assert(testFile.read().get(0).get("Price") instanceof String);
     }
 
     @AfterClass

@@ -130,8 +130,15 @@ public class DataFileIO {
 
                     for (int j = 0; j < children.getLength(); j++) {
                         if (children.item(j).getNodeType() == Node.ELEMENT_NODE) {
-                            fieldValues.put(children.item(j).getNodeName(),
-                                    children.item(j).getTextContent());
+                            String nodeName = children.item(j).getNodeName();
+                            Object nodeContent;
+                            try {
+                                nodeContent = Integer.parseInt(children.item(j).getTextContent());
+                            }
+                            catch (NumberFormatException e) {
+                                nodeContent = children.item(j).getTextContent();
+                            }
+                            fieldValues.put(nodeName, nodeContent);
                         }
                     }
                     entries.add(fieldValues);
