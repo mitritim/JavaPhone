@@ -110,7 +110,7 @@ public class LoginGUI extends javax.swing.JDialog {
                 .addGap(24, 24, 24))
         );
 
-        pack();
+        setBounds(0, 0, 620, 423);
     }// </editor-fold>                        
 
     private void submitLoginActionPerformed(java.awt.event.ActionEvent evt) {                                            
