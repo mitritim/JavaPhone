@@ -15,15 +15,12 @@ public class UserList extends ArrayList<HashMap> {
         this.addAll(userDataFile.read());
     }
 
-    public ArrayList getUserData(User user) {
-        return null;
-    }
-
-    public boolean changeUserData(User user, HashMap userData) {
-        return true;
-    }
-
-    public String sendUserPassword(int userId) {
+    public HashMap getUserData(int userId) {         
+        for(HashMap user : this) {
+            if(user.containsValue(userId)) {
+                return user;
+            }
+        }
         return null;
     }
 }
