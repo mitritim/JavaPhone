@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package javaphone;
+package JavaPhone;
 
 /**
  *
@@ -39,12 +39,9 @@ public class WorkerListGUI extends javax.swing.JFrame {
         menu = new javax.swing.JPanel();
         main = new javax.swing.JPanel();
         handlaggare = new javax.swing.JLabel();
-        id = new javax.swing.JLabel();
-        namn = new javax.swing.JLabel();
-        antal = new javax.swing.JLabel();
-        reg_kunder = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         submitNewWorker = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableWorker = new javax.swing.JTable();
         buttonStartpage = new javax.swing.JButton();
         buttonAddNewCustomer = new javax.swing.JButton();
         buttonCustomer = new javax.swing.JButton();
@@ -138,14 +135,6 @@ public class WorkerListGUI extends javax.swing.JFrame {
         handlaggare.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         handlaggare.setText("Handläggarlista");
 
-        id.setText("ID");
-
-        namn.setText("Namn");
-
-        antal.setText("Antal");
-
-        reg_kunder.setText("reg. kunder");
-
         submitNewWorker.setText("Ny Handläggare");
         submitNewWorker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,44 +142,41 @@ public class WorkerListGUI extends javax.swing.JFrame {
             }
         });
 
+        tableWorker.setBackground(new java.awt.Color(240, 240, 240));
+        tableWorker.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Namn", "Antal reg Kunder", "Inkomster", "Redigera uppgifter", "Visa handläggarens reg. kunder"
+            }
+        ));
+        tableWorker.setGridColor(new java.awt.Color(240, 240, 240));
+        jScrollPane1.setViewportView(tableWorker);
+
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
         main.setLayout(mainLayout);
         mainLayout.setHorizontalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainLayout.createSequentialGroup()
-                                .addComponent(id)
-                                .addGap(50, 50, 50)
-                                .addComponent(namn)
-                                .addGap(80, 80, 80)
-                                .addComponent(reg_kunder))
-                            .addComponent(handlaggare)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(submitNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(mainLayout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(antal)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(handlaggare)
+                    .addComponent(submitNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1))
+                .addGap(88, 88, 88))
         );
         mainLayout.setVerticalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(handlaggare)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(antal)
-                .addGap(4, 4, 4)
-                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id)
-                    .addComponent(namn)
-                    .addComponent(reg_kunder))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 520, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
                 .addComponent(submitNewWorker, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
@@ -302,7 +288,8 @@ public class WorkerListGUI extends javax.swing.JFrame {
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1098, 765));
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void buttonLoggOutActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -390,7 +377,6 @@ public class WorkerListGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JDialog addWorker;
-    private javax.swing.JLabel antal;
     private javax.swing.JButton buttonAddNewCustomer;
     private javax.swing.JButton buttonCustomer;
     private javax.swing.JButton buttonLoggOut;
@@ -398,19 +384,17 @@ public class WorkerListGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonStartpage;
     private javax.swing.JButton buttonWorker;
     private javax.swing.JLabel handlaggare;
-    private javax.swing.JLabel id;
     private javax.swing.JTextField inputWorkerName;
     private javax.swing.JTextField inputWorkerPassword;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel main;
     private javax.swing.JPanel menu;
-    private javax.swing.JLabel namn;
     private javax.swing.JLabel newlösenord;
     private javax.swing.JLabel newnamn;
-    private javax.swing.JLabel reg_kunder;
     private javax.swing.JButton submitAcceptNewWorker;
     private javax.swing.JButton submitCancelNewWorker;
     private javax.swing.JButton submitNewWorker;
+    private javax.swing.JTable tableWorker;
     // End of variables declaration                   
 }
