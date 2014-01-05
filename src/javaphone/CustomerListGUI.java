@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package javaphone;
+package JavaPhone;
 
 /**
  *
@@ -31,15 +31,12 @@ public class CustomerListGUI extends javax.swing.JFrame {
         menu = new javax.swing.JPanel();
         main = new javax.swing.JPanel();
         customerList = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         viewPhone = new javax.swing.JCheckBox();
         viewBradband = new javax.swing.JCheckBox();
         filterWorker = new javax.swing.JLabel();
         workerDropdown = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         buttonStartpage = new javax.swing.JButton();
         buttonAddNewCustomer = new javax.swing.JButton();
         buttonCustomer = new javax.swing.JButton();
@@ -76,13 +73,28 @@ public class CustomerListGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Kund ID");
+        jTable1.setBackground(new java.awt.Color(240, 240, 240));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Kund ID", "Namn", "Telefon", "Bredband"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        jLabel2.setText("Namn");
-
-        jLabel3.setText("Telefoni");
-
-        jLabel4.setText("Bredband");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setGridColor(new java.awt.Color(240, 240, 240));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
         main.setLayout(mainLayout);
@@ -91,28 +103,17 @@ public class CustomerListGUI extends javax.swing.JFrame {
             .addGroup(mainLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainLayout.createSequentialGroup()
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerList)
-                            .addComponent(jLabel1))
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainLayout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(viewPhone)
-                                .addGap(61, 61, 61)
-                                .addComponent(viewBradband)
-                                .addGap(65, 65, 65)
-                                .addComponent(filterWorker)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(workerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel2)
-                                .addGap(80, 80, 80)
-                                .addComponent(jLabel3)
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel4)))))
+                        .addComponent(customerList)
+                        .addGap(57, 57, 57)
+                        .addComponent(viewPhone)
+                        .addGap(61, 61, 61)
+                        .addComponent(viewBradband)
+                        .addGap(65, 65, 65)
+                        .addComponent(filterWorker)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(workerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainLayout.setVerticalGroup(
@@ -125,15 +126,9 @@ public class CustomerListGUI extends javax.swing.JFrame {
                     .addComponent(filterWorker)
                     .addComponent(workerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(customerList))
-                .addGap(30, 30, 30)
-                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(260, Short.MAX_VALUE))
         );
 
         buttonStartpage.setText("Startsida");
@@ -250,7 +245,8 @@ public class CustomerListGUI extends javax.swing.JFrame {
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1102, 765));
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void buttonLoggOutActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -329,15 +325,12 @@ public class CustomerListGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonWorker;
     private javax.swing.JLabel customerList;
     private javax.swing.JLabel filterWorker;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel main;
     private javax.swing.JPanel menu;
     private javax.swing.JCheckBox viewBradband;
