@@ -20,6 +20,7 @@ public class NewCustomerGUI extends javax.swing.JFrame {
     String town = "";
     String eMail = "";
     String phonenumber = "";
+    String customerID = "";
     
     boolean sPhone = false;
     boolean sBradband = false;
@@ -69,6 +70,7 @@ public class NewCustomerGUI extends javax.swing.JFrame {
         abonemang = new javax.swing.JLabel();
         checkboxPhone = new javax.swing.JCheckBox();
         checkboxBradband = new javax.swing.JCheckBox();
+        displayCustomerID = new javax.swing.JLabel();
         buttonStartpage = new javax.swing.JButton();
         buttonAddNewCustomer = new javax.swing.JButton();
         buttonCustomer = new javax.swing.JButton();
@@ -177,7 +179,7 @@ public class NewCustomerGUI extends javax.swing.JFrame {
         contractIMG.setLayout(contractIMGLayout);
         contractIMGLayout.setHorizontalGroup(
             contractIMGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 364, Short.MAX_VALUE)
         );
         contractIMGLayout.setVerticalGroup(
             contractIMGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,6 +198,8 @@ public class NewCustomerGUI extends javax.swing.JFrame {
         });
 
         checkboxBradband.setText("Bredband");
+
+        displayCustomerID.setText(customerID);
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
         main.setLayout(mainLayout);
@@ -217,19 +221,21 @@ public class NewCustomerGUI extends javax.swing.JFrame {
                             .addComponent(kundID)
                             .addComponent(abonemang))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fieldPersonId, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(fieldTown, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(fieldAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(fieldPostNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(fieldPhonenumber, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(fieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addComponent(fieldName)
-                            .addComponent(fieldLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                            .addGroup(mainLayout.createSequentialGroup()
-                                .addComponent(checkboxPhone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(checkboxBradband)))
+                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(fieldPersonId, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(fieldTown, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(fieldAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(fieldPostNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(fieldPhonenumber, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(fieldEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(fieldName)
+                                .addComponent(fieldLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addGroup(mainLayout.createSequentialGroup()
+                                    .addComponent(checkboxPhone)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(checkboxBradband)))
+                            .addComponent(displayCustomerID))
                         .addGap(140, 140, 140))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLayout.createSequentialGroup()
                         .addContainerGap()
@@ -249,7 +255,9 @@ public class NewCustomerGUI extends javax.swing.JFrame {
                             .addComponent(SubmitSaveCustomer))
                         .addComponent(contractIMG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(mainLayout.createSequentialGroup()
-                        .addComponent(kundID)
+                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(kundID)
+                            .addComponent(displayCustomerID))
                         .addGap(39, 39, 39)
                         .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -546,6 +554,7 @@ public class NewCustomerGUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkboxBradband;
     private javax.swing.JCheckBox checkboxPhone;
     private javax.swing.JPanel contractIMG;
+    private javax.swing.JLabel displayCustomerID;
     private javax.swing.JLabel do_you_want_to_add;
     private javax.swing.JLabel efternamn;
     private javax.swing.JLabel email;
