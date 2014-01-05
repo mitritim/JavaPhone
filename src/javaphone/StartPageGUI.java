@@ -1,4 +1,10 @@
-package javaphone;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package JavaPhone;
 
 /**
  *
@@ -176,7 +182,8 @@ public class StartPageGUI extends javax.swing.JFrame {
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1102, 765));
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void buttonLoggOutActionPerformed(java.awt.event.ActionEvent evt) {                                              
