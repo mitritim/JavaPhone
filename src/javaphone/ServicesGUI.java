@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package JavaPhone;
+package javaphone;
 import java.util.Scanner;
 /**
  *
