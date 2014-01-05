@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package javaphone;
+package JavaPhone;
 import java.util.Scanner;
 /**
  *
@@ -62,13 +62,11 @@ public class ServicesGUI extends javax.swing.JFrame {
         bredband = new javax.swing.JLabel();
         telefoni = new javax.swing.JLabel();
         combo = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        pris = new javax.swing.JLabel();
-        antal_kunder = new javax.swing.JLabel();
-        intakter = new javax.swing.JLabel();
         submitChangeBradband = new javax.swing.JButton();
         submitChangePhone = new javax.swing.JButton();
         submitChangeCombo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableServices = new javax.swing.JTable();
         buttonStartpage = new javax.swing.JButton();
         buttonAddNewCustomer = new javax.swing.JButton();
         buttonCustomer = new javax.swing.JButton();
@@ -343,12 +341,6 @@ public class ServicesGUI extends javax.swing.JFrame {
 
         combo.setText("Combo:");
 
-        pris.setText("Pris");
-
-        antal_kunder.setText("Antal kunder");
-
-        intakter.setText("Intäkter");
-
         submitChangeBradband.setText("Ändra pris");
         submitChangeBradband.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,64 +362,75 @@ public class ServicesGUI extends javax.swing.JFrame {
             }
         });
 
+        TableServices.setBackground(new java.awt.Color(240, 240, 240));
+        TableServices.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Pris", "Antal kunder", "Intäkter"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TableServices.setCellSelectionEnabled(true);
+        TableServices.setFocusable(false);
+        TableServices.setGridColor(new java.awt.Color(240, 240, 240));
+        jScrollPane1.setViewportView(TableServices);
+
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
         main.setLayout(mainLayout);
         mainLayout.setHorizontalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(abonemang)
                     .addGroup(mainLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
                         .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(abonemang)
-                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainLayout.createSequentialGroup()
-                                    .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(combo, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(telefoni, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(mainLayout.createSequentialGroup()
-                                            .addComponent(bredband)
-                                            .addGap(423, 423, 423)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(submitChangeCombo)
-                                        .addComponent(submitChangePhone)
-                                        .addComponent(submitChangeBradband)))
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(mainLayout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(pris)
-                        .addGap(88, 88, 88)
-                        .addComponent(antal_kunder)
-                        .addGap(125, 125, 125)
-                        .addComponent(intakter)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(bredband)
+                            .addComponent(combo)
+                            .addComponent(telefoni))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(submitChangeCombo)
+                            .addComponent(submitChangePhone)
+                            .addComponent(submitChangeBradband))))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
         mainLayout.setVerticalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(abonemang)
-                .addGap(49, 49, 49)
-                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pris)
-                    .addComponent(antal_kunder)
-                    .addComponent(intakter))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bredband)
-                    .addComponent(submitChangeBradband))
-                .addGap(27, 27, 27)
-                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefoni)
-                    .addComponent(submitChangePhone))
-                .addGap(27, 27, 27)
-                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combo)
-                    .addComponent(submitChangeCombo))
-                .addContainerGap(453, Short.MAX_VALUE))
+                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bredband)
+                            .addComponent(submitChangeBradband))
+                        .addGap(27, 27, 27)
+                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(telefoni)
+                            .addComponent(submitChangePhone))
+                        .addGap(27, 27, 27)
+                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(combo)
+                            .addComponent(submitChangeCombo)))
+                    .addGroup(mainLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(439, Short.MAX_VALUE))
         );
 
         buttonStartpage.setText("Startsida");
@@ -497,7 +500,7 @@ public class ServicesGUI extends javax.swing.JFrame {
                     .addComponent(buttonServices, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonLoggOut, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddNewCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(892, 895, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -532,7 +535,8 @@ public class ServicesGUI extends javax.swing.JFrame {
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1292, 765));
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void buttonLoggOutActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -563,10 +567,6 @@ public class ServicesGUI extends javax.swing.JFrame {
        s.setVisible(true);
     }                                               
 
-    private void submitChangeBradbandActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-       changePriceBradband.setVisible(true);
-    }                                                    
-
     private void inputNewPriceBradbandActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         // TODO add your handling code here:
     }                                                     
@@ -579,10 +579,6 @@ public class ServicesGUI extends javax.swing.JFrame {
         changePriceCombo.setVisible(true);
     }                                                  
 
-    private void submitChangePhoneActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        changePricePhone.setVisible(true);
-    }                                                 
-
     private void submitCancelBradbandActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         changePriceBradband.setVisible(false);
     }                                                    
@@ -593,10 +589,6 @@ public class ServicesGUI extends javax.swing.JFrame {
 
     private void submitCancelComboActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         changePriceCombo.setVisible(false);
-    }                                                 
-
-    private void submitChangeComboActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        changePriceCombo.setVisible(true);
     }                                                 
 
     private void submitAcceptActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -638,6 +630,18 @@ public class ServicesGUI extends javax.swing.JFrame {
         errorMessage.setVisible(false);
     }                                        
 
+    private void submitChangeComboActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        changePriceCombo.setVisible(true);
+    }                                                 
+
+    private void submitChangePhoneActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        changePricePhone.setVisible(true);
+    }                                                 
+
+    private void submitChangeBradbandActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        changePriceBradband.setVisible(true);
+    }                                                    
+
     /**
      * @param args the command line arguments
      */
@@ -674,11 +678,11 @@ public class ServicesGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JTable TableServices;
     private javax.swing.JLabel abonemang;
     private javax.swing.JLabel andra_pris_bredband;
     private javax.swing.JLabel andra_pris_combo;
     private javax.swing.JLabel andra_pris_telefoni;
-    private javax.swing.JLabel antal_kunder;
     private javax.swing.JLabel bredband;
     private javax.swing.JButton buttonAddNewCustomer;
     private javax.swing.JButton buttonCustomer;
@@ -694,11 +698,10 @@ public class ServicesGUI extends javax.swing.JFrame {
     private javax.swing.JTextField inputNewPriceBradband;
     private javax.swing.JTextField inputNewPriceCombo;
     private javax.swing.JTextField inputNewPricePhone;
-    private javax.swing.JLabel intakter;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel kr_B;
     private javax.swing.JLabel kr_C;
     private javax.swing.JPanel main;
@@ -706,7 +709,6 @@ public class ServicesGUI extends javax.swing.JFrame {
     private javax.swing.JLabel nytt_Pris_P;
     private javax.swing.JLabel nytt_pris_B;
     private javax.swing.JLabel nytt_pris_C;
-    private javax.swing.JLabel pris;
     private javax.swing.JButton submitAccept;
     private javax.swing.JButton submitAcceptCombo;
     private javax.swing.JButton submitAcceptPhone;
