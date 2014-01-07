@@ -1,13 +1,12 @@
 package javaphone;
 
-import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * This controller class is responsible for communication between
- * the GUI and the model classes.
- * 
+ * This controller class is responsible for communication between the GUI and
+ * the model classes.
+ *
  * @author iGroup
  */
 public class LpPhoneMain {
@@ -40,7 +39,7 @@ public class LpPhoneMain {
     }
 
     private boolean login(int userId, String password) {
-        if (sendUserPassword(userId).equals(password)) {
+        if (getUserById(userId).get("userPassword").equals(password)) {
             setActiveUser(userId);
             return true;
         } else {
@@ -56,47 +55,52 @@ public class LpPhoneMain {
         return customerList.add(customerData);
     }
 
-    public ArrayList getCustomerList(User user, Service service) {
-        return customerList.filter(user, service);
+    public ArrayList getCustomerList() {
+        return customerList;
+    }
+    
+    public ArrayList getCustomerList(int userId, int serviceId) {
+        return customerList.filter(userId, serviceId);
+    }
+    
+    public HashMap getCustomerById(int customerId) {
+        return customerList.getCustomerById(customerId);
     }
 
-    public ArrayList getCustomerData(Customer customer) {
-        return customerList.getCustomerData(customer);
-    }
-
-    public boolean changeCustomerData(Customer customer, HashMap customerData) {
+/*    public boolean changeCustomerData(Customer customer, HashMap customerData) {
         return customerList.changeCustomerData(customer, customerData);
     }
-
-    public int getCustomerNoByService(Service service) {
-        return customerList.getCustomerNoByService(service);
+*/
+    public int getCustomerNoByService(int serviceId) {
+        return customerList.getCustomerNoByService(serviceId);
     }
 
     public ArrayList getUserList() {
         return userList;
     }
 
-    public ArrayList getUserData(User user) {
-        return userList.getUserData(user);
+    public HashMap getUserById(int userId) {
+        return userList.getUserData(userId);
     }
-
-    public boolean changeUserData(User user, HashMap userData) {
-        return userList.changeUserData(user, userData);
-    }
-
-    public String sendUserPassword(int userId) {
-        return userList.sendUserPassword(userId);
-    }
+    /*
+     public boolean changeUserData(User user, HashMap userData) {
+     return userList.changeUserData(user, userData);
+     }
+     */
 
     public ArrayList getServiceList() {
         return serviceList;
     }
-
-    public double getServicePrice(Service service) {
-        return serviceList.getServicePrice(service);
+    
+    public ArrayList getServiceById(int serviceId) {
+        return serviceList.getServiceById(serviceId);
     }
 
-    public boolean setServicePrice(Service service, double price) {
-        return serviceList.setServicePrice(service, price);
+    public double getServicePrice(int serviceId) {
+        return serviceList.getServicePrice(serviceId);
+    }
+
+    public boolean setServicePrice(int serviceId, double price) {
+        return serviceList.setServicePrice(serviceId, price);
     }
 }
