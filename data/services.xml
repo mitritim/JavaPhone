@@ -1,16 +1,19 @@
 ﻿<services>
 
 <service>
+<serviceId>1</serviceId>
 <serviceName>Telefoni</serviceName>
 <servicePrice>150</servicePrice>
 </service>
 
 <service>
+<serviceId>2</serviceId>
 <serviceName>Bredband</serviceName>
 <servicePrice>150</servicePrice>
 </service>
 
 <service>
+<serviceId>3</serviceId>
 <serviceName>Combo</serviceName>
 <servicePrice>250</servicePrice>
 </service>
