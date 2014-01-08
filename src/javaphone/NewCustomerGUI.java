@@ -65,23 +65,18 @@ public class NewCustomerGUI extends javax.swing.JFrame {
         email = new javax.swing.JLabel();
         telefonnummer = new javax.swing.JLabel();
         SubmitSaveCustomer = new javax.swing.JButton();
-        contractIMG = new javax.swing.JPanel();
         kundID = new javax.swing.JLabel();
         abonemang = new javax.swing.JLabel();
         checkboxPhone = new javax.swing.JCheckBox();
         checkboxBradband = new javax.swing.JCheckBox();
         displayCustomerID = new javax.swing.JLabel();
+        contractImage = new javax.swing.JLabel();
         buttonStartpage = new javax.swing.JButton();
         buttonAddNewCustomer = new javax.swing.JButton();
         buttonCustomer = new javax.swing.JButton();
         buttonWorker = new javax.swing.JButton();
         buttonServices = new javax.swing.JButton();
         buttonLoggOut = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         addCPopup.setTitle("Bekräfta ny kund");
         addCPopup.setAlwaysOnTop(true);
@@ -135,6 +130,7 @@ public class NewCustomerGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lägg till nu kund | lpPhone");
+        setAlwaysOnTop(true);
         setPreferredSize(new java.awt.Dimension(1080, 630));
 
         menu.setAlignmentX(0.0F);
@@ -173,19 +169,6 @@ public class NewCustomerGUI extends javax.swing.JFrame {
             }
         });
 
-        contractIMG.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout contractIMGLayout = new javax.swing.GroupLayout(contractIMG);
-        contractIMG.setLayout(contractIMGLayout);
-        contractIMGLayout.setHorizontalGroup(
-            contractIMGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 364, Short.MAX_VALUE)
-        );
-        contractIMGLayout.setVerticalGroup(
-            contractIMGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         kundID.setText("KundID:");
 
         abonemang.setText("Abonemang:");
@@ -200,6 +183,8 @@ public class NewCustomerGUI extends javax.swing.JFrame {
         checkboxBradband.setText("Bredband");
 
         displayCustomerID.setText(customerID);
+
+        contractImage.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
         main.setLayout(mainLayout);
@@ -241,61 +226,62 @@ public class NewCustomerGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(SubmitSaveCustomer)
                         .addGap(41, 41, 41)))
-                .addComponent(contractIMG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(contractImage, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
         mainLayout.setVerticalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(mainLayout.createSequentialGroup()
-                            .addGap(510, 510, 510)
-                            .addComponent(SubmitSaveCustomer))
-                        .addComponent(contractIMG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(mainLayout.createSequentialGroup()
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(kundID)
-                            .addComponent(displayCustomerID))
-                        .addGap(39, 39, 39)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(förnamn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(efternamn))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldPersonId, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(personnummer))
-                        .addGap(18, 18, 18)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(adress))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldPostNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(postnummer))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldTown, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ort))
-                        .addGap(18, 18, 18)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldPhonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(telefonnummer))
-                        .addGap(18, 18, 18)
-                        .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(510, 510, 510)
+                        .addComponent(SubmitSaveCustomer))
+                    .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(contractImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(mainLayout.createSequentialGroup()
                             .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(checkboxPhone)
-                                .addComponent(abonemang))
-                            .addComponent(checkboxBradband))))
+                                .addComponent(kundID)
+                                .addComponent(displayCustomerID))
+                            .addGap(39, 39, 39)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(förnamn))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(efternamn))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldPersonId, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(personnummer))
+                            .addGap(18, 18, 18)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldAdress, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(adress))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldPostNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(postnummer))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldTown, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ort))
+                            .addGap(18, 18, 18)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(email))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(fieldPhonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(telefonnummer))
+                            .addGap(18, 18, 18)
+                            .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(checkboxPhone)
+                                    .addComponent(abonemang))
+                                .addComponent(checkboxBradband)))))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
 
@@ -393,29 +379,6 @@ public class NewCustomerGUI extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jMenu2.setText("Edit");
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Ny kund");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu1.setText("Hjälp");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Lägga till ny kund");
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu1);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -449,10 +412,6 @@ public class NewCustomerGUI extends javax.swing.JFrame {
         addCPopup.setVisible(true);
         
     }                                                  
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
 
     private void submittSendActionPerformed(java.awt.event.ActionEvent evt) {                                            
         name = fieldName.getText();
@@ -553,7 +512,7 @@ public class NewCustomerGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonWorker;
     private javax.swing.JCheckBox checkboxBradband;
     private javax.swing.JCheckBox checkboxPhone;
-    private javax.swing.JPanel contractIMG;
+    private javax.swing.JLabel contractImage;
     private javax.swing.JLabel displayCustomerID;
     private javax.swing.JLabel do_you_want_to_add;
     private javax.swing.JLabel efternamn;
@@ -567,11 +526,6 @@ public class NewCustomerGUI extends javax.swing.JFrame {
     private javax.swing.JTextField fieldPostNumber;
     private javax.swing.JTextField fieldTown;
     private javax.swing.JLabel förnamn;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel kundID;
     private javax.swing.JPanel main;
     private javax.swing.JPanel menu;
