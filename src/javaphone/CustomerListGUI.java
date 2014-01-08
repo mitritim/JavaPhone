@@ -43,10 +43,6 @@ public class CustomerListGUI extends javax.swing.JFrame {
         buttonWorker = new javax.swing.JButton();
         buttonServices = new javax.swing.JButton();
         buttonLoggOut = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kunder | lpPhone");
@@ -128,7 +124,7 @@ public class CustomerListGUI extends javax.swing.JFrame {
                     .addComponent(customerList))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         buttonStartpage.setText("Startsida");
@@ -219,18 +215,6 @@ public class CustomerListGUI extends javax.swing.JFrame {
                         .addComponent(buttonLoggOut, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0))
         );
-
-        jMenu1.setText("Edit");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Hjälp");
-
-        jMenuItem1.setText("jMenuItem1");
-        jMenu2.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -325,10 +309,6 @@ public class CustomerListGUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonWorker;
     private javax.swing.JLabel customerList;
     private javax.swing.JLabel filterWorker;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel main;
