@@ -23,6 +23,7 @@ public class ServicesGUI extends javax.swing.JFrame {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -384,7 +385,9 @@ public class ServicesGUI extends javax.swing.JFrame {
         TableServices.setCellSelectionEnabled(true);
         TableServices.setFocusable(false);
         TableServices.setGridColor(new java.awt.Color(240, 240, 240));
+        TableServices.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TableServices);
+        TableServices.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
         main.setLayout(mainLayout);
