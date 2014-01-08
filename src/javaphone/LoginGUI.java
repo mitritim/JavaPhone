@@ -14,15 +14,24 @@ public class LoginGUI extends javax.swing.JDialog {
     
     String username ="";
     String password="";
+    boolean acces = false;
 
     /**
      * Creates new form Login
      */
+    public LoginGUI(){
+     initComponents();
+    }
+    
     public LoginGUI(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    public void GetUserState (boolean userState){
+        acces = userState;
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +41,9 @@ public class LoginGUI extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        wrongInputError = new javax.swing.JDialog();
+        wrongInput = new javax.swing.JLabel();
+        submitDecline = new javax.swing.JButton();
         logga_in = new javax.swing.JLabel();
         submitLogin = new javax.swing.JButton();
         inputUserName = new javax.swing.JTextField();
@@ -39,8 +51,48 @@ public class LoginGUI extends javax.swing.JDialog {
         losenord = new javax.swing.JLabel();
         inputPassword = new javax.swing.JPasswordField();
 
+        wrongInputError.setTitle("Felaktiga användaruppgifter");
+        wrongInputError.setAlwaysOnTop(true);
+        wrongInputError.setMinimumSize(new java.awt.Dimension(400, 180));
+        wrongInputError.setResizable(false);
+        wrongInputError.setType(java.awt.Window.Type.POPUP);
+
+        wrongInput.setText("Användaruppgifterna du angivit är inte korrekta.");
+
+        submitDecline.setText("Ok");
+        submitDecline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitDeclineActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout wrongInputErrorLayout = new javax.swing.GroupLayout(wrongInputError.getContentPane());
+        wrongInputError.getContentPane().setLayout(wrongInputErrorLayout);
+        wrongInputErrorLayout.setHorizontalGroup(
+            wrongInputErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(wrongInputErrorLayout.createSequentialGroup()
+                .addGroup(wrongInputErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(wrongInputErrorLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(wrongInput))
+                    .addGroup(wrongInputErrorLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(submitDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+        wrongInputErrorLayout.setVerticalGroup(
+            wrongInputErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(wrongInputErrorLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(wrongInput)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(submitDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Logga in | lpPhone");
+        setIconImage(null);
 
         logga_in.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         logga_in.setText("Logga in");
@@ -110,12 +162,23 @@ public class LoginGUI extends javax.swing.JDialog {
                 .addGap(24, 24, 24))
         );
 
-        setBounds(0, 0, 620, 423);
+        setSize(new java.awt.Dimension(620, 423));
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 
     private void submitLoginActionPerformed(java.awt.event.ActionEvent evt) {                                            
             username = inputUserName.getText();
-            password = inputPassword.getText();        
+            password = inputPassword.getText();  
+            
+            if (acces == true){
+               dispose();
+               StartPageGUI s = new StartPageGUI();
+               s.setVisible(true);
+            }
+            
+            else{
+                wrongInputError.setVisible(true);
+            }
     }                                           
 
     private void inputUserNameActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -124,6 +187,10 @@ public class LoginGUI extends javax.swing.JDialog {
 
     private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
+    }                                             
+
+    private void submitDeclineActionPerformed(java.awt.event.ActionEvent evt) {                                              
+       wrongInputError.setVisible(false);
     }                                             
 
     /**
@@ -174,6 +241,9 @@ public class LoginGUI extends javax.swing.JDialog {
     private javax.swing.JTextField inputUserName;
     private javax.swing.JLabel logga_in;
     private javax.swing.JLabel losenord;
+    private javax.swing.JButton submitDecline;
     private javax.swing.JButton submitLogin;
+    private javax.swing.JLabel wrongInput;
+    private javax.swing.JDialog wrongInputError;
     // End of variables declaration                   
 }
