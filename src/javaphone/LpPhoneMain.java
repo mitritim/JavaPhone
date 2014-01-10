@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class LpPhoneMain {
 
-    private int activeUser;
+    private HashMap activeUser;
     private final ServiceList serviceList;
     private final UserList userList;
     private final CustomerList customerList;
@@ -30,19 +30,27 @@ public class LpPhoneMain {
     }
 
     private boolean setActiveUser(int userId) {
-        activeUser = userId;
+        activeUser = userList.getUserById(userId);
         return true;
     }
 
-    public int getActiveUser() {
+    public HashMap getActiveUser() {
         return activeUser;
     }
 
-    private boolean login(int userId, String password) {
-        if (getUserById(userId).get("userPassword").equals(password)) {
-            setActiveUser(userId);
-            return true;
-        } else {
+    public boolean login(HashMap loginData) {
+        String userName = (String) loginData.get("userName");
+        String password = (String) loginData.get("password");
+
+        try {
+            int userId = Integer.parseInt(userName);
+            if (getUserById(userId).get("userPassword").equals(password)) {
+                setActiveUser(userId);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (NumberFormatException e) {
             return false;
         }
     }
@@ -55,32 +63,32 @@ public class LpPhoneMain {
         return customerList.add(customerData);
     }
 
-    public ArrayList getCustomerList() {
+    public CustomerList getCustomerList() {
         return customerList;
     }
-    
+
     public ArrayList getCustomerList(int userId, int serviceId) {
         return customerList.filter(userId, serviceId);
     }
-    
+
     public HashMap getCustomerById(int customerId) {
         return customerList.getCustomerById(customerId);
     }
 
-/*    public boolean changeCustomerData(Customer customer, HashMap customerData) {
-        return customerList.changeCustomerData(customer, customerData);
-    }
-*/
+    /*    public boolean changeCustomerData(Customer customer, HashMap customerData) {
+     return customerList.changeCustomerData(customer, customerData);
+     }
+     */
     public int getCustomerNoByService(int serviceId) {
         return customerList.getCustomerNoByService(serviceId);
     }
 
-    public ArrayList getUserList() {
+    public UserList getUserList() {
         return userList;
     }
 
     public HashMap getUserById(int userId) {
-        return userList.getUserData(userId);
+        return userList.getUserById(userId);
     }
     /*
      public boolean changeUserData(User user, HashMap userData) {
@@ -88,10 +96,10 @@ public class LpPhoneMain {
      }
      */
 
-    public ArrayList getServiceList() {
+    public ServiceList getServiceList() {
         return serviceList;
     }
-    
+
     public ArrayList getServiceById(int serviceId) {
         return serviceList.getServiceById(serviceId);
     }
