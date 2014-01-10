@@ -24,7 +24,8 @@ public class UserList extends ArrayList<HashMap> {
     /**
      * Searches for user with specific userId
      * @param userId
-     * @return users information
+     * @return user data as HashMap if user found 
+     *         null if user not found
      */
     public HashMap getUserById(int userId) {
         for (HashMap user : this) {
