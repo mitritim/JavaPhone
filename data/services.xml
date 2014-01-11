@@ -1,21 +1,18 @@
-﻿<services>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<services>
 <service>
 <serviceId>1</serviceId>
-<serviceName>Telefoni</serviceName>
 <servicePrice>150</servicePrice>
+<serviceName>Telefoni</serviceName>
 </service>
-
 <service>
 <serviceId>2</serviceId>
-<serviceName>Bredband</serviceName>
 <servicePrice>150</servicePrice>
+<serviceName>Bredband</serviceName>
 </service>
-
 <service>
 <serviceId>3</serviceId>
-<serviceName>Combo</serviceName>
 <servicePrice>250</servicePrice>
+<serviceName>Combo</serviceName>
 </service>
-
 </services>
