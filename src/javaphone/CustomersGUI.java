@@ -16,16 +16,19 @@ public class CustomersGUI extends javax.swing.JPanel {
 
     private MainWindowGUI main;
     private ArrayList customerList;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel pageTitle;
-    private javax.swing.JTable table;
+    private JButton jButton1;
+    private JLabel pageTitle;
+    private JTable table;
+    private JPanel filterPanel = new JPanel();
     private DefaultTableModel model;
     private String keys[];
     private boolean tableReady = false;
+    private TableRowSorter<TableModel> sorter;
 
     /**
      * Constructor for the class CustomersGUI
-     * @param main  reference to the main window object
+     *
+     * @param main reference to the main window object
      */
     public CustomersGUI(MainWindowGUI main) {
         this.main = main;
@@ -67,7 +70,12 @@ public class CustomersGUI extends javax.swing.JPanel {
         table = new JTable(model) {
             @Override
             public Class getColumnClass(int column) {
-                return getValueAt(0, column).getClass();
+                switch (column) {
+                    case 0:
+                        return Integer.class;
+                    default:
+                        return String.class;
+                }
             }
 
             @Override
@@ -88,7 +96,11 @@ public class CustomersGUI extends javax.swing.JPanel {
                     int modelRow = table.convertRowIndexToModel(row);
                     int modelColumn = table.convertColumnIndexToModel(column);
                     HashMap listRow = (HashMap) customerList.get(modelRow);
-                    listRow.put(keys[modelColumn], table.getValueAt(row, column));
+                    if (modelColumn == 9) {
+                        listRow.put(keys[modelColumn], (int) getServiceIdByName((String) table.getValueAt(row, column)));
+                    } else {
+                        listRow.put(keys[modelColumn], table.getValueAt(row, column));
+                    }
 
                     // Saves data and displays a message.
                     if (main.getController().saveCustomerList()) {
@@ -112,35 +124,17 @@ public class CustomersGUI extends javax.swing.JPanel {
         fillTable();
 
         // Makes the table sortable.
-        TableRowSorter<TableModel> sorter
-                = new TableRowSorter<TableModel>(table.getModel());
+        sorter = new TableRowSorter<TableModel>(table.getModel());
         ArrayList sortKeys = new ArrayList();
         sorter.setSortKeys(sortKeys);
         sorter.sort();
         table.setRowSorter(sorter);
-        // Sets the default column to sort data by.
-        //table.getRowSorter().toggleSortOrder(4);
 
-        // Filter
-/*        ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>(2);
-         filters.add(RowFilter.regexFilter("1", 0));
-         filters.add(RowFilter.regexFilter("", 1));
-         RowFilter rf = RowFilter.andFilter(filters);
-
-         sorter.setRowFilter(rf);
-         */
-        
         // Defines row editors.
-/*        TableColumn serviceColumn = table.getColumnModel().getColumn(9);
-
-        JComboBox comboBox = new JComboBox();
-        comboBox.addItem("Ingen abonnemang");
-        comboBox.addItem("Telefoni");
-        comboBox.addItem("Bredband");
-        comboBox.addItem("Combo");
-
+        TableColumn serviceColumn = table.getColumnModel().getColumn(9);
+        JComboBox comboBox = new JComboBox(getServiceNames());
         serviceColumn.setCellEditor(new DefaultCellEditor(comboBox));
-*/
+      
         return table;
     }
 
@@ -148,14 +142,67 @@ public class CustomersGUI extends javax.swing.JPanel {
      * Fills table with data or updates it.
      */
     public void fillTable() {
-    
+
         tableReady = false;
         for (int i = 0; i < customerList.size(); i++) {
             HashMap hashMap = (HashMap) customerList.get(i);
-            for (int j = 0; j < keys.length; j++) {
+            for (int j = 0; j < keys.length - 2; j++) {
                 table.setValueAt(hashMap.get(keys[j]), i, j);
             }
+            table.setValueAt(getServiceNames()[(int) hashMap.get("serviceId")], i, keys.length - 2);
+            table.setValueAt(getUserNames()[(int) hashMap.get("userId")], i, keys.length - 1);
         }
         tableReady = true;
+    }
+
+    private String[] getServiceNames() {
+        String[] serviceNames = new String[main.getController().getServiceList().size() + 1];
+        ArrayList<String> names = new ArrayList();
+        names.add("Inget abonnemang");
+        for (HashMap service : main.getController().getServiceList()) {
+            names.add((String) service.get("serviceName"));
+        }
+        names.toArray(serviceNames);
+        return serviceNames;
+    }
+
+    private int getServiceIdByName(String serviceName) {
+        for (HashMap service : main.getController().getServiceList()) {
+            if (serviceName.equals(service.get("serviceName"))) {
+                return (int) service.get("serviceId");
+            }
+        }
+        return 0;
+    }
+
+    private String[] getUserNames() {
+        String[] serviceNames = new String[main.getController().getUserList().size() + 1];
+        ArrayList<String> names = new ArrayList();
+        names.add("Ingen handläggare");
+        for (HashMap user : main.getController().getUserList()) {
+            String userFirstName = (String) user.get("userFirstName");
+            String userLastName = (String) user.get("userLastName");
+            names.add(userLastName + ", " + userFirstName);
+        }
+        names.toArray(serviceNames);
+        return serviceNames;
+    }
+
+    private void filter(String serviceName, String userName) {
+
+        ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>(2);
+        filters.add(RowFilter.regexFilter(serviceName, 9));
+        filters.add(RowFilter.regexFilter(userName, 10));
+        RowFilter rf = RowFilter.andFilter(filters);
+
+        sorter.setRowFilter(rf);
+    }
+    
+    private void initFilterPanel() {
+        JLabel labelFilter = new JLabel("Filter");
+        JLabel labelFilterService = new JLabel ("Visa bara kunder med abonnemang:");
+        JComboBox serviceBox = new JComboBox();
+        JLabel labelFilterUser = new JLabel ("Visa bara kunder som registrerades av:");
+        JComboBox userBox = new JComboBox();
     }
 }
