@@ -231,12 +231,7 @@ public class UsersGUI extends javax.swing.JPanel {
                         "En ny handläggare skapades och sparades.",
                         "Handläggaren skapades",
                         JOptionPane.DEFAULT_OPTION);
-                // Updates tables.
-/*
-                 main.updateCustomersGUI(); 
-                 main.updateServicesGUI();
-                 main.updateUsersGUI();
-                 */
+                
             } else {
                 JOptionPane.showMessageDialog(null,
                         "Handläggaren kunde inte skapas.",

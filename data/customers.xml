@@ -7,23 +7,322 @@
 <customerLocation>Skellefteå</customerLocation>
 <userId>2</userId>
 <customerPhoneNumber>076 3546271</customerPhoneNumber>
-<customerZipCode>93121</customerZipCode>
+<customerZipCode>931 21</customerZipCode>
 <customerAdress>Gravgatan 34</customerAdress>
 <customerEmail>johan.eriksson@mail.com</customerEmail>
 <customerFirstName>Johan</customerFirstName>
 <customerLastName>Eriksson</customerLastName>
 </customer>
 <customer>
-<customerPersonId>811228-9874</customerPersonId>
+<customerPersonId>560412-6829</customerPersonId>
 <customerId>2</customerId>
 <serviceId>1</serviceId>
 <customerLocation>Nikkala</customerLocation>
-<userId>3</userId>
+<userId>2</userId>
 <customerPhoneNumber>076 9274953</customerPhoneNumber>
-<customerZipCode>85294</customerZipCode>
+<customerZipCode>852 94</customerZipCode>
 <customerAdress>Stortorget 12</customerAdress>
 <customerEmail>liamp@bling.com</customerEmail>
 <customerFirstName>Liam</customerFirstName>
 <customerLastName>Prune</customerLastName>
+</customer>
+<customer>
+<customerId>3</customerId>
+<customerPersonId>451231-4163</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Pingesta</customerLocation>
+<customerPhoneNumber>076 3546271</customerPhoneNumber>
+<userId>2</userId>
+<customerZipCode>983 24</customerZipCode>
+<customerAdress>Gravgatan 42</customerAdress>
+<customerEmail>dwestermark@minmail.se</customerEmail>
+<customerFirstName>Darius</customerFirstName>
+<customerLastName>Westermark</customerLastName>
+</customer>
+<customer>
+<customerId>4</customerId>
+<customerPersonId>910829-6854</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Medsund</customerLocation>
+<customerPhoneNumber>075 3246571</customerPhoneNumber>
+<userId>2</userId>
+<customerZipCode>783 98</customerZipCode>
+<customerAdress>Vid slakthuset 3</customerAdress>
+<customerEmail>harje.jarrel@gmail.com</customerEmail>
+<customerFirstName>Harje</customerFirstName>
+<customerLastName>Jarrel</customerLastName>
+</customer>
+<customer>
+<customerId>5</customerId>
+<customerPersonId>761025-5346</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Frialund</customerLocation>
+<customerPhoneNumber>078 2443553</customerPhoneNumber>
+<userId>3</userId>
+<customerZipCode>582 98</customerZipCode>
+<customerAdress>Nordstrandsvägen 4</customerAdress>
+<customerEmail>a_helander@hotmail.com</customerEmail>
+<customerFirstName>Anna</customerFirstName>
+<customerLastName>Helander</customerLastName>
+</customer>
+<customer>
+<customerId>6</customerId>
+<customerPersonId>950402-2542</customerPersonId>
+<serviceId>3</serviceId>
+<customerLocation>Vestervika</customerLocation>
+<customerPhoneNumber>073 9820827</customerPhoneNumber>
+<userId>3</userId>
+<customerZipCode>979 02</customerZipCode>
+<customerAdress>Pingstgatan 43</customerAdress>
+<customerEmail>peppina@mail.com</customerEmail>
+<customerFirstName>Petra</customerFirstName>
+<customerLastName>Fredenberg</customerLastName>
+</customer>
+<customer>
+<customerId>7</customerId>
+<customerPersonId>520228-2883</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Nynäshamn</customerLocation>
+<customerPhoneNumber>078 9892343</customerPhoneNumber>
+<userId>3</userId>
+<customerZipCode>830 94</customerZipCode>
+<customerAdress>Kyrkogatan 12</customerAdress>
+<customerEmail>j.rosenlund@telia.se</customerEmail>
+<customerFirstName>Judith</customerFirstName>
+<customerLastName>Rosenlund</customerLastName>
+</customer>
+<customer>
+<customerId>8</customerId>
+<customerPersonId>831021-3423</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Stockholm</customerLocation>
+<customerPhoneNumber>078 62474634</customerPhoneNumber>
+<userId>2</userId>
+<customerZipCode>810 93</customerZipCode>
+<customerAdress>Stengatan 97</customerAdress>
+<customerEmail>dardibashkim@gmail.com</customerEmail>
+<customerFirstName>Dardan</customerFirstName>
+<customerLastName>Bash</customerLastName>
+</customer>
+<customer>
+<customerId>9</customerId>
+<customerPersonId>710921-2525</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Lycksele</customerLocation>
+<customerPhoneNumber>070 789298</customerPhoneNumber>
+<userId>2</userId>
+<customerZipCode>871 32</customerZipCode>
+<customerAdress>Rosenbadsgatan 24</customerAdress>
+<customerEmail>rosahjort@bsfa.com</customerEmail>
+<customerFirstName>Rosa</customerFirstName>
+<customerLastName>Hjort</customerLastName>
+</customer>
+<customer>
+<customerId>10</customerId>
+<customerPersonId>961229-2899</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Krokom</customerLocation>
+<customerPhoneNumber>070 2099921</customerPhoneNumber>
+<userId>2</userId>
+<customerZipCode>699 20</customerZipCode>
+<customerAdress>Stengården 66</customerAdress>
+<customerEmail>lina.bohlander@gmail.com</customerEmail>
+<customerFirstName>Carollina</customerFirstName>
+<customerLastName>Bohlander</customerLastName>
+</customer>
+<customer>
+<customerId>11</customerId>
+<customerPersonId>550616-2696</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Enskede</customerLocation>
+<customerPhoneNumber>076 9829727</customerPhoneNumber>
+<userId>3</userId>
+<customerZipCode>122 48</customerZipCode>
+<customerAdress>Hamngatan 5</customerAdress>
+<customerEmail>basir.gamil@gmail.com</customerEmail>
+<customerFirstName>Basir</customerFirstName>
+<customerLastName>Gamil</customerLastName>
+</customer>
+<customer>
+<customerId>12</customerId>
+<customerPersonId>951118-3572</customerPersonId>
+<serviceId>3</serviceId>
+<customerLocation>Strömsund</customerLocation>
+<customerPhoneNumber>070 26226274</customerPhoneNumber>
+<userId>1</userId>
+<customerZipCode>264 24</customerZipCode>
+<customerAdress>Lindhagen 24</customerAdress>
+<customerEmail>mwesterfald@amail.com</customerEmail>
+<customerFirstName>Mira</customerFirstName>
+<customerLastName>Westerfald</customerLastName>
+</customer>
+<customer>
+<customerId>13</customerId>
+<customerPersonId>691110-2991</customerPersonId>
+<serviceId>3</serviceId>
+<customerLocation>Borgström</customerLocation>
+<customerPhoneNumber>071 9860020</customerPhoneNumber>
+<userId>3</userId>
+<customerZipCode>283 92</customerZipCode>
+<customerAdress>Storgatan 23</customerAdress>
+<customerEmail>maria.pettersson@mail.se</customerEmail>
+<customerFirstName>Maria</customerFirstName>
+<customerLastName>Pettersson</customerLastName>
+</customer>
+<customer>
+<customerId>14</customerId>
+<customerPersonId>940121-2873</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Stockholm</customerLocation>
+<customerPhoneNumber>076 8720181</customerPhoneNumber>
+<userId>4</userId>
+<customerZipCode>828 01</customerZipCode>
+<customerAdress>Pireusgatan 42</customerAdress>
+<customerEmail>erik.mehlin@gmail.com</customerEmail>
+<customerFirstName>Erik</customerFirstName>
+<customerLastName>Mehlin</customerLastName>
+</customer>
+<customer>
+<customerId>15</customerId>
+<customerPersonId>450214-5242</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Arvidsjaur</customerLocation>
+<customerPhoneNumber>063 98482012</customerPhoneNumber>
+<userId>4</userId>
+<customerZipCode>425 23</customerZipCode>
+<customerAdress>Björkvägen 24</customerAdress>
+<customerEmail>e.ostman@delial.se</customerEmail>
+<customerFirstName>Ejvin</customerFirstName>
+<customerLastName>Ostman</customerLastName>
+</customer>
+<customer>
+<customerId>16</customerId>
+<customerPersonId>710928-3542</customerPersonId>
+<serviceId>3</serviceId>
+<customerLocation>Birkesund</customerLocation>
+<customerPhoneNumber>060 39882012</customerPhoneNumber>
+<userId>4</userId>
+<customerZipCode>245 34</customerZipCode>
+<customerAdress>Skogstigen 23</customerAdress>
+<customerEmail>yasmina.parisa@gmail.com</customerEmail>
+<customerFirstName>Yasmina</customerFirstName>
+<customerLastName>Parisa</customerLastName>
+</customer>
+<customer>
+<customerId>17</customerId>
+<customerPersonId>380523-0242</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Viskafors</customerLocation>
+<customerPhoneNumber>075 2502772</customerPhoneNumber>
+<userId>1</userId>
+<customerZipCode>422 32</customerZipCode>
+<customerAdress>Nobelgatan 42</customerAdress>
+<customerEmail>lmdarbinian@petrius.se</customerEmail>
+<customerFirstName>Lucine Maral</customerFirstName>
+<customerLastName>Darbinian</customerLastName>
+</customer>
+<customer>
+<customerId>18</customerId>
+<customerPersonId>981104-2530</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Stockholm</customerLocation>
+<customerPhoneNumber>070 2626532</customerPhoneNumber>
+<userId>1</userId>
+<customerZipCode>857 23</customerZipCode>
+<customerAdress>Wilsons väg 34</customerAdress>
+<customerEmail>katrina.dahlen@gmail.com</customerEmail>
+<customerFirstName>Katrina</customerFirstName>
+<customerLastName>Dahlen</customerLastName>
+</customer>
+<customer>
+<customerId>19</customerId>
+<customerPersonId>640219-3542</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Stockholm</customerLocation>
+<customerPhoneNumber>078 4920803</customerPhoneNumber>
+<userId>1</userId>
+<customerZipCode>820 01</customerZipCode>
+<customerAdress>Stenvägen 110</customerAdress>
+<customerEmail>milica.visnjovic@vard.se</customerEmail>
+<customerFirstName>Milica</customerFirstName>
+<customerLastName>Visnjovic</customerLastName>
+</customer>
+<customer>
+<customerId>20</customerId>
+<customerPersonId>731017-2556</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Borås</customerLocation>
+<customerPhoneNumber>070 3426426</customerPhoneNumber>
+<userId>1</userId>
+<customerZipCode>729 42</customerZipCode>
+<customerAdress>Petriusvägen 36</customerAdress>
+<customerEmail>maj.nyberg@gmail.com</customerEmail>
+<customerFirstName>Maj</customerFirstName>
+<customerLastName>Nyberg</customerLastName>
+</customer>
+<customer>
+<customerId>21</customerId>
+<customerPersonId>590109-9753</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Kungsberg</customerLocation>
+<customerPhoneNumber>071 9290012</customerPhoneNumber>
+<userId>4</userId>
+<customerZipCode>593 23</customerZipCode>
+<customerAdress>Fjärrilvägen 2</customerAdress>
+<customerEmail>grosengren@prinius.se</customerEmail>
+<customerFirstName>Glenn</customerFirstName>
+<customerLastName>Rosengren</customerLastName>
+</customer>
+<customer>
+<customerId>22</customerId>
+<customerPersonId>880106-5527</customerPersonId>
+<serviceId>3</serviceId>
+<customerLocation>Göteborg</customerLocation>
+<customerPhoneNumber>070 2662723</customerPhoneNumber>
+<userId>4</userId>
+<customerZipCode>578 20</customerZipCode>
+<customerAdress>Drottningsgata 24</customerAdress>
+<customerEmail>p.rosenqvist@gmail.com</customerEmail>
+<customerFirstName>Pär</customerFirstName>
+<customerLastName>Rosenqvist</customerLastName>
+</customer>
+<customer>
+<customerId>23</customerId>
+<customerPersonId>990125-2668</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Fjällmyra</customerLocation>
+<customerPhoneNumber>067 2885735</customerPhoneNumber>
+<userId>4</userId>
+<customerZipCode>628 24</customerZipCode>
+<customerAdress>Långgatan 25</customerAdress>
+<customerEmail>liam.spring@yahoo.com</customerEmail>
+<customerFirstName>Liam</customerFirstName>
+<customerLastName>Spring</customerLastName>
+</customer>
+<customer>
+<customerId>24</customerId>
+<customerPersonId>790524-2601</customerPersonId>
+<serviceId>2</serviceId>
+<customerLocation>Munkedal</customerLocation>
+<customerPhoneNumber>075 2653653</customerPhoneNumber>
+<userId>1</userId>
+<customerZipCode>263 26</customerZipCode>
+<customerAdress>Slottstigen 26</customerAdress>
+<customerEmail>emma.aslin@gmail.com</customerEmail>
+<customerFirstName>Emma</customerFirstName>
+<customerLastName>Aslin</customerLastName>
+</customer>
+<customer>
+<customerId>25</customerId>
+<customerPersonId>390228-0152</customerPersonId>
+<serviceId>1</serviceId>
+<customerLocation>Stockholm</customerLocation>
+<customerPhoneNumber>070 262465</customerPhoneNumber>
+<userId>1</userId>
+<customerZipCode>802 34</customerZipCode>
+<customerAdress>Kungsgatan 16</customerAdress>
+<customerEmail>haraldnoren@msa.du.se</customerEmail>
+<customerFirstName>Harald</customerFirstName>
+<customerLastName>Noren</customerLastName>
 </customer>
 </customers>

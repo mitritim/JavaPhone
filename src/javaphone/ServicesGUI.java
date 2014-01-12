@@ -3,8 +3,13 @@ package javaphone;
 import static java.awt.Component.LEFT_ALIGNMENT;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -56,25 +61,34 @@ public class ServicesGUI extends javax.swing.JPanel {
         reportButton.setText("Skapa rapport för statistikbyrån");
         reportButton.setAlignmentX(LEFT_ALIGNMENT);
         add(reportButton);
-        
+
         reportButton.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (main.getController().createReport()) {
-                        JOptionPane.showMessageDialog(null,
-                                "Rapporten skapades och sparades.",
-                                "Rapport skapat",
-                                JOptionPane.DEFAULT_OPTION);
-                    } else {
-                        JOptionPane.showMessageDialog(null,
-                                "Rapporten kunde inte skapas.",
-                                "Felmeddelande",
-                                JOptionPane.ERROR_MESSAGE);
+                    String absolutePath = null;
+                    try {
+                        File relativePath = new File("data/report.xml");
+                        absolutePath = relativePath.getCanonicalPath();
+                    } catch (IOException ex) {
+                        Logger.getLogger(ServicesGUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
+
+                    JOptionPane.showMessageDialog(null,
+                            "Rapporten skapades och sparades.\n"
+                            + "(Sökväg: " + absolutePath + ")",
+                            "Rapport skapat",
+                            JOptionPane.DEFAULT_OPTION);
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Rapporten kunde inte skapas.",
+                            "Felmeddelande",
+                            JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
-        
+
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
@@ -108,6 +122,7 @@ public class ServicesGUI extends javax.swing.JPanel {
                     int modelColumn = table.convertColumnIndexToModel(column);
                     HashMap listRow = (HashMap) serviceList.get(modelRow);
                     listRow.put(keys[modelColumn], table.getValueAt(row, column));
+                    fillTable();
 
                     // Saves data and displays a message.
                     if (main.getController().saveServiceList()) {

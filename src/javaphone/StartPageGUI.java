@@ -12,8 +12,8 @@ public class StartPageGUI extends javax.swing.JPanel {
 
     private MainWindowGUI main;
     private JLabel welcomeText;
-    private JLabel text;
-    private JLabel text2;
+    private JLabel description;
+    private JLabel copyright;
 
     /**
      * Constructor for class StartPageGUI.
@@ -39,14 +39,14 @@ public class StartPageGUI extends javax.swing.JPanel {
         welcomeText.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14));
         welcomeText.setBorder(new javax.swing.border.EmptyBorder(0, 0, 10, 0));
         
-        text = new JLabel("Lpphone är ett fiktivt program för hantering "
+        description = new JLabel("Lpphone är ett fiktivt program för hantering "
                 + "av kunder och data riktat till ett telefonbolag.");
         
-        text2 = new JLabel("Copyright, iGroup 2014");
+        copyright = new JLabel("Copyright, iGroup 2014");
 
         add(welcomeText);
-        add(text);
-        add(text2);
+        add(description);
+        add(copyright);
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
     }

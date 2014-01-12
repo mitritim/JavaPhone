@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
 <user>
 <userFirstName>Johan</userFirstName>
@@ -17,5 +17,11 @@
 <userId>3</userId>
 <userPassword>hun123</userPassword>
 <userLastName>Stiegersen</userLastName>
+</user>
+<user>
+<userFirstName>Monica</userFirstName>
+<userId>4</userId>
+<userPassword>moni123</userPassword>
+<userLastName>Salinski</userLastName>
 </user>
 </users>
