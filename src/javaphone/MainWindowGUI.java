@@ -8,6 +8,7 @@ import java.util.HashMap;
 public class MainWindowGUI extends JPanel {
 
     private Controller controller;
+    private JTabbedPane tabbedPane;
     private StartPageGUI startPageGUI;
     private NewCustomerGUI newCustomerGUI;
     private CustomersGUI customersGUI;
@@ -19,19 +20,19 @@ public class MainWindowGUI extends JPanel {
 
         controller = new Controller();
         while (!controller.login(login()));
-        
+
         startPageGUI = new StartPageGUI(this);
         newCustomerGUI = new NewCustomerGUI(this);
         customersGUI = new CustomersGUI(this);
         usersGUI = new UsersGUI(this);
         servicesGUI = new ServicesGUI(this);
-        
+
         //Creates and adds the tabbed pane to this panel.
         add(createTabbedPane());
     }
 
     private JTabbedPane createTabbedPane() {
-        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.LEFT) {
+        tabbedPane = new JTabbedPane(JTabbedPane.LEFT) {
             @Override // Modified so that choosing the last tab exits the program.
             public void setSelectedIndex(int index) {
                 if (index != 0 && index == this.getTabCount() - 1) {
@@ -113,12 +114,22 @@ public class MainWindowGUI extends JPanel {
     public void updateServicesGUI() {
         servicesGUI.fillTable();
     }
-    
+
     public void updateCustomersGUI() {
-        customersGUI.createTable();
-     }
-        
+        customersGUI.updateTable();
+    }
+
     public void updateUsersGUI() {
         usersGUI.fillTable();
+    }
+
+    public void updatePanes() {
+        customersGUI = new CustomersGUI(this);
+        usersGUI = new UsersGUI(this);
+        servicesGUI = new ServicesGUI(this);
+        
+        tabbedPane.setComponentAt(2, customersGUI);
+        tabbedPane.setComponentAt(3, usersGUI);
+        tabbedPane.setComponentAt(4, servicesGUI);
     }
 }

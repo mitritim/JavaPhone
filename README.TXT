@@ -10,3 +10,6 @@ as well as see all available services and change the price.
 
 How to start the project:
 call the main method in the class JavaPhone.
+
+User-name: 1
+Password: password

@@ -22,6 +22,7 @@ public class CustomersGUI extends javax.swing.JPanel {
     private JButton jButton1;
     private JLabel pageTitle;
     private JTable table;
+    private JScrollPane scrollPane;
 
     private JPanel filterPanel = new JPanel();
     private JComboBox serviceBox;
@@ -56,7 +57,7 @@ public class CustomersGUI extends javax.swing.JPanel {
 
         // Creates a scroll pane, adds table to it and adds the pane to the panel.
         createTable();
-        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane = new JScrollPane(table);
         scrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         scrollPane.setAlignmentX(LEFT_ALIGNMENT);
         add(scrollPane);
@@ -152,7 +153,6 @@ public class CustomersGUI extends javax.swing.JPanel {
      * Fills table with data or updates it.
      */
     public void fillTable() {
-
         tableReady = false;
         for (int i = 0; i < customerList.size(); i++) {
             HashMap hashMap = (HashMap) customerList.get(i);
@@ -201,15 +201,15 @@ public class CustomersGUI extends javax.swing.JPanel {
     private void filter(String serviceName, String userName) {
 
         ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>(2);
-        
-        if(serviceName.equals("Alla abonnemang")) {
+
+        if (serviceName.equals("Alla abonnemang")) {
             serviceName = "";
         }
-        
-        if(userName.equals("Alla handläggare")) {
+
+        if (userName.equals("Alla handläggare")) {
             userName = "";
         }
-        
+
         filters.add(RowFilter.regexFilter(serviceName, 9));
         filters.add(RowFilter.regexFilter(userName, 10));
         RowFilter rf = RowFilter.andFilter(filters);
@@ -231,7 +231,6 @@ public class CustomersGUI extends javax.swing.JPanel {
 
         String serviceNames[] = getServiceNames();
         serviceNames[0] = "Alla abonnemang";
-        System.out.println(serviceNames);
         serviceBox = new JComboBox(serviceNames);
         serviceBox.addActionListener(comboBoxChange);
 
@@ -240,7 +239,6 @@ public class CustomersGUI extends javax.swing.JPanel {
 
         String userNames[] = getUserNames();
         userNames[0] = "Alla handläggare";
-        System.out.println(userNames);
         userBox = new JComboBox(userNames);
         userBox.addActionListener(comboBoxChange);
 
@@ -250,5 +248,13 @@ public class CustomersGUI extends javax.swing.JPanel {
         filterPanel.add(userBox);
 
         add(filterPanel);
+    }
+
+    public void updateTable() {
+        remove(scrollPane);
+        createTable();
+        add(scrollPane);
+        revalidate();
+        repaint();
     }
 }

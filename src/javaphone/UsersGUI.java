@@ -154,14 +154,6 @@ public class UsersGUI extends javax.swing.JPanel {
         // Sets the default column to sort data by.
         table.getRowSorter().toggleSortOrder(4);
 
-        // Filter
-/*        ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>(2);
-         filters.add(RowFilter.regexFilter("1", 0));
-         filters.add(RowFilter.regexFilter("", 1));
-         RowFilter rf = RowFilter.andFilter(filters);
-
-         sorter.setRowFilter(rf);
-         */
         return table;
     }
 
@@ -251,7 +243,10 @@ public class UsersGUI extends javax.swing.JPanel {
                         "Felmeddelande",
                         JOptionPane.ERROR_MESSAGE);
             }
-
+            
+            // Updates all panes.
+            main.updatePanes();
+            
             // Clears all fields.
             fieldId.setText(Integer.toString(
                     main.getController().getUserList().size() + 1));

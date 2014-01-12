@@ -2,14 +2,11 @@ package javaphone;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 
@@ -53,7 +50,7 @@ public class NewCustomerGUI extends javax.swing.JPanel {
 
     private JButton saveButton = new JButton("Spara kunden");
 
-    JLabel picLabel;
+    private JLabel picLabel;
 
     /**
      * Constructor for the class NewCustomer
@@ -138,7 +135,8 @@ public class NewCustomerGUI extends javax.swing.JPanel {
         // Adds some padding to the panel.
         rightPanel.setBorder(new javax.swing.border.EmptyBorder(10, 10, 10, 10));
         rightPanel.setAlignmentY(TOP_ALIGNMENT);
-        showNextContract();
+        initNextContract();
+        rightPanel.add(picLabel);
     }
 
     private void newCustomer() {
@@ -162,31 +160,28 @@ public class NewCustomerGUI extends javax.swing.JPanel {
                         "Den nya användaren skapades och sparades.",
                         "Anändaren skapades",
                         JOptionPane.DEFAULT_OPTION);
-                // Updates tables.
+                
+                // Updates all panes.
+                main.updatePanes();
 
-                main.updateCustomersGUI(); //!!!
-                main.updateServicesGUI();
-                main.updateUsersGUI();
-
-                // Gets and shows a new contract, if available.
-                try {
-                    Path sourcePath = Paths.get((String) main.getController().getScannedContracts().get(0));
-                    String targetURI = "Registrerade avtal/" + fieldId.getText() + ".jpg";
-                    Path targetPath = Paths.get(targetURI);
-                    Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
-                    BufferedImage myPicture = ImageIO.read(new File((String) main
-                            .getController().getScannedContracts().get(0)));
-                    picLabel = new JLabel(new ImageIcon(myPicture));
-                    
-                    picLabel.revalidate();
-                    picLabel.repaint();
-                    this.revalidate();
-                    this.repaint();
-                    main.revalidate();
-                    main.repaint();
-                } catch (IOException ex) {
-                    Logger.getLogger(NewCustomerGUI.class.getName()).log(Level.SEVERE, null, ex);
+                // Moves and renames the contract file.
+                if (main.getController().getScannedContracts().size() != 0) {
+                    try {
+                        Path sourcePath = Paths.get((String) main.getController().getScannedContracts().get(0));
+                        String targetURI = "Registrerade avtal/" + fieldId.getText() + ".jpg";
+                        Path targetPath = Paths.get(targetURI);
+                        Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException ex) {
+                        Logger.getLogger(NewCustomerGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
+                
+                // The scanned image is first removed and a new one shown.
+                rightPanel.remove(picLabel);
+                initNextContract();
+                rightPanel.add(picLabel);
+                rightPanel.revalidate();
+                rightPanel.repaint();
 
             } else {
                 JOptionPane.showMessageDialog(null,
@@ -230,21 +225,14 @@ public class NewCustomerGUI extends javax.swing.JPanel {
         }
     }
 
-    private void showNextContract() {
-        BufferedImage myPicture;
+    private void initNextContract() {
         ArrayList<String> scannedContracts = main.getController().getScannedContracts();
 
         if (scannedContracts.size() != 0) {
-            try {
-                myPicture = ImageIO.read(new File(scannedContracts.get(0)));
-                picLabel = new JLabel(new ImageIcon(myPicture));
-            } catch (IOException ex) {
-                Logger.getLogger(NewCustomerGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            ImageIcon image = new ImageIcon((String) scannedContracts.get(0));
+            picLabel = new JLabel("", image, JLabel.CENTER);
         } else {
             picLabel = new JLabel("Det finns inga inscannade avtal att visa.");
         }
-        rightPanel.add(picLabel);
     }
 }

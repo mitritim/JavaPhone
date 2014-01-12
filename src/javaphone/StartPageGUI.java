@@ -1,5 +1,6 @@
 package javaphone;
 
+import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 
@@ -35,14 +36,13 @@ public class StartPageGUI extends javax.swing.JPanel {
         welcomeText = new JLabel("Hej " 
                 + main.getController().getActiveUser().get("userFirstName") 
                 + ", välkommen till JavaPhone!");
-        welcomeText.setFont(new java.awt.Font("Tahoma", 0, 14));
+        welcomeText.setFont(new java.awt.Font("Tahoma", Font.BOLD, 14));
         welcomeText.setBorder(new javax.swing.border.EmptyBorder(0, 0, 10, 0));
         
-        text = new JLabel("För att komma igång kan du behöva lite bla bla bla "
-                + "imnfop som di lätt kan få genom att kanske fråga någon.");
+        text = new JLabel("Lpphone är ett fiktivt program för hantering "
+                + "av kunder och data riktat till ett telefonbolag.");
         
-        text2 = new JLabel("Genom att bara gå till någon sida eller något, "
-                + "inta fan vet jag, sluta fråga så mycket fråfor ");
+        text2 = new JLabel("Copyright, iGroup 2014");
 
         add(welcomeText);
         add(text);
