@@ -176,11 +176,13 @@ public class NewCustomerGUI extends javax.swing.JPanel {
                     Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
                     BufferedImage myPicture = ImageIO.read(new File((String) main
                             .getController().getScannedContracts().get(0)));
-                    //picLabel = new JLabel(new ImageIcon(myPicture));
-                    picLabel = new JLabel("lklk");
-                    rightPanel.remove(picLabel);
+                    picLabel = new JLabel(new ImageIcon(myPicture));
+                    
+                    picLabel.revalidate();
                     picLabel.repaint();
+                    this.revalidate();
                     this.repaint();
+                    main.revalidate();
                     main.repaint();
                 } catch (IOException ex) {
                     Logger.getLogger(NewCustomerGUI.class.getName()).log(Level.SEVERE, null, ex);

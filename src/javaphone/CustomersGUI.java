@@ -1,9 +1,12 @@
 package javaphone;
 
 import static java.awt.Component.LEFT_ALIGNMENT;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.*;
 
 /**
@@ -19,7 +22,11 @@ public class CustomersGUI extends javax.swing.JPanel {
     private JButton jButton1;
     private JLabel pageTitle;
     private JTable table;
+
     private JPanel filterPanel = new JPanel();
+    private JComboBox serviceBox;
+    private JComboBox userBox;
+
     private DefaultTableModel model;
     private String keys[];
     private boolean tableReady = false;
@@ -53,6 +60,9 @@ public class CustomersGUI extends javax.swing.JPanel {
         scrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         scrollPane.setAlignmentX(LEFT_ALIGNMENT);
         add(scrollPane);
+
+        // Creates the panel with the filters.
+        initFilterPanel();
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
@@ -134,7 +144,7 @@ public class CustomersGUI extends javax.swing.JPanel {
         TableColumn serviceColumn = table.getColumnModel().getColumn(9);
         JComboBox comboBox = new JComboBox(getServiceNames());
         serviceColumn.setCellEditor(new DefaultCellEditor(comboBox));
-      
+
         return table;
     }
 
@@ -191,18 +201,54 @@ public class CustomersGUI extends javax.swing.JPanel {
     private void filter(String serviceName, String userName) {
 
         ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>(2);
+        
+        if(serviceName.equals("Alla abonnemang")) {
+            serviceName = "";
+        }
+        
+        if(userName.equals("Alla handläggare")) {
+            userName = "";
+        }
+        
         filters.add(RowFilter.regexFilter(serviceName, 9));
         filters.add(RowFilter.regexFilter(userName, 10));
         RowFilter rf = RowFilter.andFilter(filters);
 
         sorter.setRowFilter(rf);
     }
-    
+
     private void initFilterPanel() {
-        JLabel labelFilter = new JLabel("Filter");
-        JLabel labelFilterService = new JLabel ("Visa bara kunder med abonnemang:");
-        JComboBox serviceBox = new JComboBox();
-        JLabel labelFilterUser = new JLabel ("Visa bara kunder som registrerades av:");
-        JComboBox userBox = new JComboBox();
+        filterPanel.setAlignmentX(LEFT_ALIGNMENT);
+
+        ActionListener comboBoxChange = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                filter((String) serviceBox.getSelectedItem(),
+                        (String) userBox.getSelectedItem());
+            }
+        };
+
+        JLabel labelFilterService = new JLabel("Visa kunder med abonnemang:");
+
+        String serviceNames[] = getServiceNames();
+        serviceNames[0] = "Alla abonnemang";
+        System.out.println(serviceNames);
+        serviceBox = new JComboBox(serviceNames);
+        serviceBox.addActionListener(comboBoxChange);
+
+        JLabel labelFilterUser = new JLabel("Visa kunder som registrerades av:");
+        labelFilterUser.setBorder(new EmptyBorder(0, 50, 0, 0));
+
+        String userNames[] = getUserNames();
+        userNames[0] = "Alla handläggare";
+        System.out.println(userNames);
+        userBox = new JComboBox(userNames);
+        userBox.addActionListener(comboBoxChange);
+
+        filterPanel.add(labelFilterService);
+        filterPanel.add(serviceBox);
+        filterPanel.add(labelFilterUser);
+        filterPanel.add(userBox);
+
+        add(filterPanel);
     }
 }
