@@ -17,7 +17,7 @@ import javax.swing.table.*;
 public class ServicesGUI extends javax.swing.JPanel {
 
     private MainWindowGUI main;
-    private ArrayList list;
+    private ArrayList serviceList;
     private javax.swing.JButton reportButton;
     private javax.swing.JLabel pageTitle;
     private javax.swing.JTable table;
@@ -30,7 +30,7 @@ public class ServicesGUI extends javax.swing.JPanel {
      */
     public ServicesGUI(MainWindowGUI main) {
         this.main = main;
-        this.list = main.getController().getServiceList();
+        this.serviceList = main.getController().getServiceList();
         initComponents();
     }
 
@@ -83,7 +83,7 @@ public class ServicesGUI extends javax.swing.JPanel {
         String columnHeaders[] = {"Abonnemang", "Pris", "Antal kunder", "Intäkter"};
         String mapKeys[] = {"serviceName", "servicePrice"};
         keys = mapKeys;
-        model = new DefaultTableModel(columnHeaders, list.size());
+        model = new DefaultTableModel(columnHeaders, serviceList.size());
         table = new JTable(model) {
             @Override
             public Class getColumnClass(int column) {
@@ -106,7 +106,7 @@ public class ServicesGUI extends javax.swing.JPanel {
                 if (tableReady) {
                     int modelRow = table.convertRowIndexToModel(row);
                     int modelColumn = table.convertColumnIndexToModel(column);
-                    HashMap listRow = (HashMap) list.get(modelRow);
+                    HashMap listRow = (HashMap) serviceList.get(modelRow);
                     listRow.put(keys[modelColumn], table.getValueAt(row, column));
 
                     // Saves data and displays a message.
@@ -144,8 +144,8 @@ public class ServicesGUI extends javax.swing.JPanel {
      */
     public void fillTable() {
         tableReady = false;
-        for (int i = 0; i < list.size(); i++) {
-            HashMap hashMap = (HashMap) list.get(i);
+        for (int i = 0; i < serviceList.size(); i++) {
+            HashMap hashMap = (HashMap) serviceList.get(i);
             for (int j = 0; j < keys.length; j++) {
                 table.setValueAt(hashMap.get(keys[j]), i, j);
             }

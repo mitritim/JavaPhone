@@ -1,24 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
 <user>
 <userFirstName>Johan</userFirstName>
 <userId>1</userId>
 <userPassword>password</userPassword>
-<customerCount>22</customerCount>
 <userLastName>Johnsson</userLastName>
 </user>
 <user>
 <userFirstName>Marta</userFirstName>
 <userId>2</userId>
 <userPassword>password</userPassword>
-<customerCount>11</customerCount>
 <userLastName>Verleen</userLastName>
 </user>
 <user>
 <userFirstName>Eva</userFirstName>
 <userId>3</userId>
 <userPassword>hun123</userPassword>
-<customerCount>32</customerCount>
 <userLastName>Stiegersen</userLastName>
 </user>
 </users>

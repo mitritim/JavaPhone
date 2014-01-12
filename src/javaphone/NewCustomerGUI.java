@@ -1,29 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaphone;
 
-import static java.awt.Component.LEFT_ALIGNMENT;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.*;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 
 /**
+ * This class is responsible for providing a user interface for creating a new
+ * customer. A scanned contract is shown to provide easier input.
  *
  * @author iGroup
+ * @version 2014-01-12
  */
 public class NewCustomerGUI extends javax.swing.JPanel {
 
@@ -45,7 +42,7 @@ public class NewCustomerGUI extends javax.swing.JPanel {
     private JLabel labelPhoneNumber = new JLabel("Telefonnummer:");
     private JLabel labelService = new JLabel("Abonnemang:");
 
-    private JTextField fieldId = new JTextField(20);
+    private JTextField fieldId = new JTextField(5);
     private JTextField fieldFirstName = new JTextField(20);
     private JTextField fieldLastName = new JTextField(20);
     private JTextField fieldPersonId = new JTextField(20);
@@ -54,12 +51,16 @@ public class NewCustomerGUI extends javax.swing.JPanel {
     private JTextField fieldLocation = new JTextField(20);
     private JTextField fieldEmail = new JTextField(20);
     private JTextField fieldPhoneNumber = new JTextField(20);
-    private JTextField fieldService = new JTextField(20);
+    private JComboBox fieldService;
 
     private JButton saveButton = new JButton("Spara kunden");
 
+    JLabel picLabel;
+
     /**
-     * Creates new NewNewCustomer
+     * Constructor for the class NewCustomer
+     *
+     * @param main reference to the main window object
      */
     public NewCustomerGUI(MainWindowGUI main) {
         this.main = main;
@@ -69,12 +70,10 @@ public class NewCustomerGUI extends javax.swing.JPanel {
     private void initComponents() {
         // Sets the layout of the panel.
 
-        setLayout(new GridLayout(1, 2));
-
+        //setLayout(new GridLayout(1, 2));
+        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         initLeftPanel();
-        try {
-            initRightPanel();
-        } catch (IOException ex) {}
+        initRightPanel();
 
         add(leftPanel);
         add(rightPanel);
@@ -83,6 +82,8 @@ public class NewCustomerGUI extends javax.swing.JPanel {
     private void initLeftPanel() {
         // Adds some padding to the panel.
         leftPanel.setBorder(new javax.swing.border.EmptyBorder(10, 10, 10, 10));
+        leftPanel.setAlignmentY(TOP_ALIGNMENT);
+
         javax.swing.UIManager.put("Label.font", new java.awt.Font("Arial", 0, 14));
 
         leftPanel.setLayout(new MigLayout());
@@ -91,6 +92,8 @@ public class NewCustomerGUI extends javax.swing.JPanel {
 
         leftPanel.add(labelId, "align label, gapbottom 15");
         leftPanel.add(fieldId, "wrap");
+        fieldId.setEditable(false);
+        fieldId.setText(Integer.toString(main.getController().getCustomerList().size() + 1));
 
         leftPanel.add(labelFirstName, "align label");
         leftPanel.add(fieldFirstName, "wrap");
@@ -116,20 +119,132 @@ public class NewCustomerGUI extends javax.swing.JPanel {
         leftPanel.add(labelPhoneNumber, "align label");
         leftPanel.add(fieldPhoneNumber, "wrap, gapbottom 15");
 
+        String fields[] = {"Inget abonnemang", "Telefoni", "Bredband", "Combo"};
+        fieldService = new JComboBox(fields);
         leftPanel.add(labelService, "align label");
         leftPanel.add(fieldService, "wrap, gapbottom 15");
 
         leftPanel.add(saveButton, "tag ok");
+
+        saveButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newCustomer();
+            }
+        });
     }
 
-    private void initRightPanel() throws IOException {
+    private void initRightPanel() {
 
         // Adds some padding to the panel.
         rightPanel.setBorder(new javax.swing.border.EmptyBorder(10, 10, 10, 10));
-        
-        BufferedImage myPicture = ImageIO.read(new File((String) main
-                .getController().getScannedContracts().get(0)));
-         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+        rightPanel.setAlignmentY(TOP_ALIGNMENT);
+        showNextContract();
+    }
+
+    private void newCustomer() {
+        if (checkInput()) {
+            HashMap customer = new HashMap();
+
+            customer.put("customerId", fieldId.getText());
+            customer.put("customerFirstName", fieldFirstName.getText());
+            customer.put("customerLastName", fieldLastName.getText());
+            customer.put("customerPersonId", fieldPersonId.getText());
+            customer.put("customerAdress", fieldAddress.getText());
+            customer.put("customerZipCode", fieldZipCode.getText());
+            customer.put("customerLocation", fieldLocation.getText());
+            customer.put("customerEmail", fieldEmail.getText());
+            customer.put("customerPhoneNumber", fieldPhoneNumber.getText());
+            customer.put("serviceId", fieldService.getSelectedIndex());
+            customer.put("userId", main.getController().getActiveUser().get("userId"));
+
+            if (main.getController().addCustomer(customer) && main.getController().saveCustomerList()) {
+                JOptionPane.showMessageDialog(null,
+                        "Den nya användaren skapades och sparades.",
+                        "Anändaren skapades",
+                        JOptionPane.DEFAULT_OPTION);
+                // Updates tables.
+
+                main.updateCustomersGUI(); //!!!
+                main.updateServicesGUI();
+                main.updateUsersGUI();
+
+                // Gets and shows a new contract, if available.
+                try {
+                    Path sourcePath = Paths.get((String) main.getController().getScannedContracts().get(0));
+                    String targetURI = "Registrerade avtal/" + fieldId.getText() + ".jpg";
+                    Path targetPath = Paths.get(targetURI);
+                    Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+                    BufferedImage myPicture = ImageIO.read(new File((String) main
+                            .getController().getScannedContracts().get(0)));
+                    //picLabel = new JLabel(new ImageIcon(myPicture));
+                    picLabel = new JLabel("lklk");
+                    rightPanel.remove(picLabel);
+                    picLabel.repaint();
+                    this.repaint();
+                    main.repaint();
+                } catch (IOException ex) {
+                    Logger.getLogger(NewCustomerGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Användaren kunde inte skapas.",
+                        "Felmeddelande",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+            // Clears all fields.
+            fieldId.setText(Integer.toString(
+                    main.getController().getCustomerList().size() + 1));
+            fieldFirstName.setText("");
+            fieldLastName.setText("");
+            fieldPersonId.setText("");
+            fieldAddress.setText("");
+            fieldZipCode.setText("");
+            fieldLocation.setText("");
+            fieldEmail.setText("");
+            fieldPhoneNumber.setText("");
+            fieldService.setSelectedIndex(0);
+        }
+    }
+
+    private boolean checkInput() {
+        if (!fieldId.getText().equals("")
+                && !fieldFirstName.getText().equals("")
+                && !fieldLastName.getText().equals("")
+                && !fieldPersonId.getText().equals("")
+                && !fieldAddress.getText().equals("")
+                && !fieldZipCode.getText().equals("")
+                && !fieldLocation.getText().equals("")
+                && !fieldEmail.getText().equals("")
+                && !fieldPhoneNumber.getText().equals("")) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Alla fält måste vara ifyllda.",
+                    "Felmeddelande",
+                    JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    private void showNextContract() {
+        BufferedImage myPicture;
+        ArrayList<String> scannedContracts = main.getController().getScannedContracts();
+
+        if (scannedContracts.size() != 0) {
+            try {
+                myPicture = ImageIO.read(new File(scannedContracts.get(0)));
+                picLabel = new JLabel(new ImageIcon(myPicture));
+            } catch (IOException ex) {
+                Logger.getLogger(NewCustomerGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            picLabel = new JLabel("Det finns inga inscannade avtal att visa.");
+        }
         rightPanel.add(picLabel);
     }
 }

@@ -8,8 +8,8 @@ import java.util.HashMap;
 public class MainWindowGUI extends JPanel {
 
     private Controller controller;
-    private StartPageGUI startPageGUI; // RENAME!
-    private NewCustomerGUI newCustomerGUI; // RENAME!
+    private StartPageGUI startPageGUI;
+    private NewCustomerGUI newCustomerGUI;
     private CustomersGUI customersGUI;
     private UsersGUI usersGUI;
     private ServicesGUI servicesGUI;
@@ -63,36 +63,23 @@ public class MainWindowGUI extends JPanel {
         return tabbedPane;
     }
 
-    private JComponent makeTextPanel(String text) {
-        JPanel panel = new JPanel(false);
-        JLabel filler = new JLabel(text);
-        filler.setHorizontalAlignment(JLabel.CENTER);
-        //panel.setLayout(new GridLayout(1, 1));
-        panel.add(filler);
-        return panel;
-    }
-
     /**
      * Creates the main program window and shows it.
      */
     public static void createMainWindow() {
-        //Creates and sets up the window.
+        //Creates and sets up the frame.
         JFrame frame = new JFrame("JavaPhone");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Maximizes the window.
+        // Maximizes the frame.
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        //Adds content to the window.
+        // Adds content to the frame.
         frame.add(new MainWindowGUI());
 
-        //Displays the window.
+        // Displays the frame.
         frame.pack();
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        createMainWindow();
     }
 
     /**
@@ -102,14 +89,7 @@ public class MainWindowGUI extends JPanel {
         return controller;
     }
 
-    /**
-     * @param controller the controller to set
-     */
-    public void setController(Controller controller) {
-        this.controller = controller;
-    }
-
-    public HashMap login() {
+    private HashMap login() {
         final JTextField username = new JTextField();
         final JTextField password = new JPasswordField();
         Object[] message = {"Användarnamn:", username, "Lösenord:", password};
@@ -134,8 +114,8 @@ public class MainWindowGUI extends JPanel {
         servicesGUI.fillTable();
     }
     
-     public void updateCustomersGUI() {
-        customersGUI.fillTable();
+    public void updateCustomersGUI() {
+        customersGUI.createTable();
      }
         
     public void updateUsersGUI() {

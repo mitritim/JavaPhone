@@ -15,7 +15,7 @@ import javax.swing.table.*;
 public class CustomersGUI extends javax.swing.JPanel {
 
     private MainWindowGUI main;
-    private ArrayList list;
+    private ArrayList customerList;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel pageTitle;
     private javax.swing.JTable table;
@@ -24,11 +24,12 @@ public class CustomersGUI extends javax.swing.JPanel {
     private boolean tableReady = false;
 
     /**
-     * Creates new NewJPanel
+     * Constructor for the class CustomersGUI
+     * @param main  reference to the main window object
      */
     public CustomersGUI(MainWindowGUI main) {
         this.main = main;
-        this.list = main.getController().getCustomerList();
+        this.customerList = main.getController().getCustomerList();
         initComponents();
     }
 
@@ -44,7 +45,8 @@ public class CustomersGUI extends javax.swing.JPanel {
         add(pageTitle);
 
         // Creates a scroll pane, adds table to it and adds the pane to the panel.
-        JScrollPane scrollPane = new JScrollPane(createTable());
+        createTable();
+        JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         scrollPane.setAlignmentX(LEFT_ALIGNMENT);
         add(scrollPane);
@@ -52,7 +54,7 @@ public class CustomersGUI extends javax.swing.JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    private JTable createTable() {
+    public JTable createTable() {
         // Creates a table.
         String columnHeaders[] = {"Id", "Förnamn", "Efternamn", "Personnummer",
             "Address", "Postnummer", "Ort", "E-mail", "Telefonnummer",
@@ -61,7 +63,7 @@ public class CustomersGUI extends javax.swing.JPanel {
             "customerPersonId", "customerAdress", "customerZipCode", "customerLocation",
             "customerEmail", "customerPhoneNumber", "serviceId", "userId"};
         keys = mapKeys;
-        model = new DefaultTableModel(columnHeaders, list.size());
+        model = new DefaultTableModel(columnHeaders, customerList.size());
         table = new JTable(model) {
             @Override
             public Class getColumnClass(int column) {
@@ -85,7 +87,7 @@ public class CustomersGUI extends javax.swing.JPanel {
                 if (tableReady) {
                     int modelRow = table.convertRowIndexToModel(row);
                     int modelColumn = table.convertColumnIndexToModel(column);
-                    HashMap listRow = (HashMap) list.get(modelRow);
+                    HashMap listRow = (HashMap) customerList.get(modelRow);
                     listRow.put(keys[modelColumn], table.getValueAt(row, column));
 
                     // Saves data and displays a message.
@@ -146,13 +148,13 @@ public class CustomersGUI extends javax.swing.JPanel {
      * Fills table with data or updates it.
      */
     public void fillTable() {
+    
         tableReady = false;
-        for (int i = 0; i < list.size(); i++) {
-            HashMap hashMap = (HashMap) list.get(i);
+        for (int i = 0; i < customerList.size(); i++) {
+            HashMap hashMap = (HashMap) customerList.get(i);
             for (int j = 0; j < keys.length; j++) {
                 table.setValueAt(hashMap.get(keys[j]), i, j);
             }
-            //table.setValueAt((int) hashMap.get(keys[keys.length - 1]) * 10 + " kr", i, keys.length);
         }
         tableReady = true;
     }

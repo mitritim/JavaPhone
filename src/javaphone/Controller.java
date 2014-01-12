@@ -25,10 +25,6 @@ public class Controller {
         customerList = new CustomerList();
     }
 
-    public void runProgram() {
-        //login();
-    }
-
     private boolean setActiveUser(int userId) {
         activeUser = userList.getUserById(userId);
         return true;
@@ -67,10 +63,6 @@ public class Controller {
         return customerList.getCustomerById(customerId);
     }
 
-    /*    public boolean changeCustomerData(Customer customer, HashMap customerData) {
-     return customerList.changeCustomerData(customer, customerData);
-     }
-     */
     public int getCustomerCountByService(int serviceId) {
         return customerList.getCustomerCountByService(serviceId);
     }
@@ -87,6 +79,9 @@ public class Controller {
         return userList;
     }
 
+    public boolean addUser(HashMap user) {
+        return userList.add(user);
+    }
     public HashMap getUserById(int userId) {
         return userList.getUserById(userId);
     }

@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <customers>
 <customer>
-<customerId>1</customerId>
 <customerPersonId>811228-9874</customerPersonId>
+<customerId>1</customerId>
 <serviceId>2</serviceId>
 <customerLocation>Skellefteå</customerLocation>
-<customerPhoneNumber>076 3546271</customerPhoneNumber>
 <userId>2</userId>
+<customerPhoneNumber>076 3546271</customerPhoneNumber>
 <customerZipCode>93121</customerZipCode>
 <customerAdress>Gravgatan 34</customerAdress>
 <customerEmail>johan.eriksson@mail.com</customerEmail>
@@ -14,12 +14,12 @@
 <customerLastName>Eriksson</customerLastName>
 </customer>
 <customer>
-<customerId>2</customerId>
 <customerPersonId>811228-9874</customerPersonId>
+<customerId>2</customerId>
 <serviceId>3</serviceId>
 <customerLocation>Nikkala</customerLocation>
-<customerPhoneNumber>076 9274953</customerPhoneNumber>
 <userId>3</userId>
+<customerPhoneNumber>076 9274953</customerPhoneNumber>
 <customerZipCode>85294</customerZipCode>
 <customerAdress>Stortorget 12</customerAdress>
 <customerEmail>liamp@bling.com</customerEmail>
